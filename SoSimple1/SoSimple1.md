@@ -6,32 +6,62 @@ Machine by [@roelvb79](https://twitter.com/roelvb79)
 
 Vulnhub [link](https://www.vulnhub.com/entry/so-simple-1,515/)
 
+Objectives:
+
+  * 2 user flags
+  * 1 root flag
+
 ---
 
 ## Network scan
 
-nmap the network, find the machine as 192.168.56.111, running a web server and ssh server, no vulnerabilites shown seen.
 
   
 1. Use nmap to scan the network
 
     We'll use an intense scan on the network as it's quite small (virtualbox host only), we can see web and ssh services running, but no aparent vulnerabilities yet.
 
-    ![victim machine nmap scan result]()
+    ![victim machine nmap scan result](img/1-nmap.png)
+   
+<br>
 
+2. Visit the website
 
+    If we visit the website we can see that there is only a big red image with the words "SO SIMPLE":
+   
+    ![website](img/2-website.png)
 
+    And the website code doesn't reveal anything that's useful:
+
+    ![website origin code](img/3-website_origin.png)
+
+<br>
+
+3. Attempt an ssh login
+
+   Attempting to login with ssh shows it only accepts key authentication, thus ruling out ssh brute force with common passwords, if we want a way in we'll need an alternative
+
+<br>
+
+4. We'll run drib
+
+    As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
+  
+    ![dirb website results](imb/4-dirb.png)
+
+5. Use WPScan
+
+   As we saw on the las step wordpress is installed, WPScan will show, the wordpress, plugins and themes versions, as well as vulnerabilities associated with them
+
+<br>
 
 ---
 
 ---
 
  
-2- attempt to login to ssh, it's key authentication only, this rules out ssh brute force.
 
-3- look into http://192.168.56.111/ on a web browser, couldn't find anything interesting
 
-4- run dirb and we get to know that wordpress is installed
 
 5- create a wpscan account and get api key
 
@@ -54,3 +84,4 @@ bash
 17- then we will "chmod +x /opt/tools/server-health.sh"
 18- we can use "sudo -u root /opt/tools/server-health.sh" to get root access to the machine.
 19- copy the root's ssh private key for direct root access to the machine, and get the flag from inside the root's home folder
+WpScan
