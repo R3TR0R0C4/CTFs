@@ -41,13 +41,15 @@ Objectives:
 
    Attempting to login with ssh shows it only accepts key authentication, thus ruling out ssh brute force with common passwords, if we want a way in we'll need an alternative
 
+  ![attempt at logging into the machine with ssh](img/4-sshatt.png)
+
 <br>
 
 4. We'll run drib
 
     As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
   
-    ![dirb website results](img/4-dirb.png)
+    ![dirb website results](img/5-dirb.png)
 
 5. Use WPScan
 
