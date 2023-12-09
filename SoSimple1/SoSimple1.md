@@ -47,7 +47,7 @@ Objectives:
 
     As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
   
-    ![dirb website results](imb/4-dirb.png)
+    ![dirb website results](img/4-dirb.png)
 
 5. Use WPScan
 
