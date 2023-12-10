@@ -13,46 +13,42 @@ Objectives:
 
 ---
 
-## Network scan
 
+### 1.Use nmap to scan the network
 
-  
-1. Use nmap to scan the network
-
-    We'll use an intense scan on the victim vm (192.168.56.111), we can see web and ssh services running, but no aparent vulnerabilities yet.
-
-    ![victim machine nmap scan result](img/1-nmap.png)
+   We'll use an intense scan on the victim vm (192.168.56.111), we can see web and ssh services running, but no aparent vulnerabilities yet.
    
-<br>
-
-2. Visit the website
-
-    If we visit the website we can see that there is only a big red image with the words "SO SIMPLE":
-   
-    ![website](img/2-website.png)
-
-    And the website code doesn't reveal anything that's useful:
-
-    ![website origin code](img/3-website_origin.png)
+   ![victim machine nmap scan result](img/1-nmap.png)
 
 <br>
 
-3. Attempt an ssh login
+### 2. Visit the website
+
+   If we visit the website we can see that there is only a big red image with the words "SO SIMPLE":
+   
+   ![website](img/2-website.png)
+   
+   And the website code doesn't reveal anything that's useful:
+   
+   ![website origin code](img/3-website_origin.png)
+   
+<br>
+
+### 3. Attempt an ssh login
 
    Attempting to login with ssh shows it only accepts key authentication, thus ruling out ssh brute force with common passwords, if we want a way in we'll need an alternative
 
-
 <br>
 
-4. We'll run drib
+### 4. We'll run drib
 
-    As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
+   As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
   
-    ![dirb website results](img/4-dirb.png)
+   ![dirb website results](img/4-dirb.png)
 
 <br>
 
-5. Use WPScan
+### 5. Use WPScan
 
    As we saw on the las step wordpress is installed, WPScan will show wordpress, plugins and themes versions, as well as vulnerabilities associated with them, for this we'll need an api key that we can get by creating a free account.
 
@@ -70,18 +66,18 @@ Objectives:
 
 <br>
 
-6. Prepare the exploit
+### 6. Prepare the exploit
 
    We can see that Social Warfare 3.5.0 has a RCE [vulnerability](https://wpscan.com/vulnerability/7b412469-cc03-4899-b397-38580ced5618/). To exploit it we'll need a web server and a payload and a netcat listener to get a reverse shell.
 
-    - Web server
+   - Web server
 
        We need a web server to serve our payload, this will be apache as it's simple and comes pre-installed on kali, we only need to enable it:
 
        ![enable apache](img/7-apacheStart.png)
 
 
-    - Netcat
+   - Netcat
  
        We need a netcat instance to listen to our reverse shell and catch it, this will use openssl and you can find more info on the [swisskeyrepo](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#openssl) repository by [Swissky](https://github.com/swisskyrepo).
    
@@ -90,7 +86,7 @@ Objectives:
       
        ![running netcat listener](img/8-ncatListener.png)
  
-    - Payload
+   - Payload
       
        The payload also comes from the same repo and it will be placed on the file `/var/www/html/payload.txt` and contain the next code:
       
@@ -102,7 +98,7 @@ Objectives:
 
 <br>
 
-7. Using the exploit
+### 7. Using the exploit
 
    To run the exploit we need to visit the next url on a web browser:
 
@@ -120,7 +116,7 @@ Objectives:
    
 <br>
 
-8. Get a user ssh key
+### 8. Get a user ssh key
 
   If we cd into the .ssh folder of the user "max", we can copy his ssh key, it's called id_rsa, we can use cat to list it and then copy it into a file called "key" on our kali machine.
   
@@ -134,13 +130,17 @@ Objectives:
 
   ![connecting to user max with ssh](img/14-sshConnection.png)
 
-9. Retreiving the first user flag.
+<br>
+
+### 9. Retreiving the first user flag.
 
   Once inside and as user "max", if we ls their home directory we can see "personal.txt" this file is not useful, "this" is a folder with a bunch of subfolders with a little easter-egg and "user.txt" wich is the user flag we're after:
 
   ![getting the flag with cat of the file user.txt](img/15-firstFlag.png)
 
-10. Changing users
+<br>
+
+### 10. Changing users
 
    First we'll use the command `sudo -l` to list what services or scripts we have access to as root, but without using a password:
 
@@ -158,7 +158,9 @@ Objectives:
 
    ![using service to change into steven](img/17-escalatingprivileges2.png)
 
-11. Getting the second Flag
+<br>
+
+### 11. Getting the second Flag
 
    Once we have logged in as the user steven, we can navigate to his home directory and cat the second flag:
 
@@ -167,8 +169,10 @@ Objectives:
    We can also list the hidden contents of the user's home, but we can't see anything really useful:
 
    ![ls of hidden contents of user steven's home](img/19-escalatingtoroot1.png)
+
+<br>
    
-12. Escalating privileges to root.
+### 12. Escalating privileges to root.
 
    
 
