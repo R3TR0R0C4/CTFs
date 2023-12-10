@@ -15,22 +15,23 @@ Objectives:
 
 ## Table of Content
 
-- [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#1use-nmap-to-scan-the-network)
-- [Visiting the web](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#2-visit-the-website)
-- [Attempting SSH login](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#3-attempt-an-ssh-login)
-- [dirb reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#4-well-run-drib)
-- [WPScan reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#5-use-wpscan)
-- [Prepairing the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#5-use-wpscan)
-- [Using the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#7-using-the-exploit)
-- [Getting the SSH Key](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#8-get-a-user-ssh-key)
-- [First user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#9-retreiving-the-first-user-flag)
-- [Changing Users](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#10-changing-users)
-- [Second user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#11-getting-the-second-flag)
-- [Escalating to root](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#12-escalating-privileges-to-root)
+1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#1use-nmap-to-scan-the-network)
+2. [Visiting the web](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#2-visit-the-website)
+3. [Attempting SSH login](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#3-attempt-an-ssh-login)
+4. [dirb reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#4-well-run-drib)
+5. [WPScan reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#5-use-wpscan)
+6. [Prepairing the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#5-use-wpscan)
+7. [Using the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#7-using-the-exploit)
+8. [Getting the SSH Key](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#8-get-a-user-ssh-key)
+9. [First user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#9-retreiving-the-first-user-flag)
+10. [Changing Users](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#10-changing-users)
+11. [Second user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#11-getting-the-second-flag)
+12. [Escalating to root](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#12-escalating-privileges-to-root)
+13. [Third flag]()
   
 ---
 
-### 1.Use nmap to scan the network
+### 1. NMAP scan
 
    We'll use an intense scan on the victim vm (192.168.56.111), we can see web and ssh services running, but no aparent vulnerabilities yet.
    
@@ -38,7 +39,7 @@ Objectives:
 
 <br>
 
-### 2. Visit the website
+### 2. Visiting the web
 
    If we visit the website we can see that there is only a big red image with the words "SO SIMPLE":
    
@@ -50,13 +51,13 @@ Objectives:
    
 <br>
 
-### 3. Attempt an ssh login
+### 3. Attempting SSH login
 
    Attempting to login with ssh shows it only accepts key authentication, thus ruling out ssh brute force with common passwords, if we want a way in we'll need an alternative
 
 <br>
 
-### 4. We'll run drib
+### 4. dirb reconeisance
 
    As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
   
@@ -64,7 +65,7 @@ Objectives:
 
 <br>
 
-### 5. Use WPScan
+### 5. WPScan reconeisance
 
    As we saw on the las step wordpress is installed, WPScan will show wordpress, plugins and themes versions, as well as vulnerabilities associated with them, for this we'll need an api key that we can get by creating a free account.
 
@@ -82,7 +83,7 @@ Objectives:
 
 <br>
 
-### 6. Prepare the exploit
+### 6. Prepairing the exploit
 
    We can see that Social Warfare 3.5.0 has a RCE [vulnerability](https://wpscan.com/vulnerability/7b412469-cc03-4899-b397-38580ced5618/). To exploit it we'll need a web server and a payload and a netcat listener to get a reverse shell.
 
@@ -132,7 +133,7 @@ Objectives:
    
 <br>
 
-### 8. Get a user ssh key
+### 8. Getting the SSH Key
 
   If we cd into the .ssh folder of the user "max", we can copy his ssh key, it's called id_rsa, we can use cat to list it and then copy it into a file called "key" on our kali machine.
   
@@ -148,7 +149,7 @@ Objectives:
 
 <br>
 
-### 9. Retreiving the first user flag.
+### 9. First user flag
 
   Once inside and as user "max", if we ls their home directory we can see "personal.txt" this file is not useful, "this" is a folder with a bunch of subfolders with a little easter-egg and "user.txt" wich is the user flag we're after:
 
@@ -156,7 +157,7 @@ Objectives:
 
 <br>
 
-### 10. Changing users
+### 10. Changing Users
 
    First we'll use the command `sudo -l` to list what services or scripts we have access to as root, but without using a password:
 
@@ -176,7 +177,7 @@ Objectives:
 
 <br>
 
-### 11. Getting the second Flag
+### 11. Second user flag
 
    Once we have logged in as the user steven, we can navigate to his home directory and cat the second flag:
 
@@ -188,7 +189,7 @@ Objectives:
 
 <br>
    
-### 12. Escalating privileges to root.
+### 12. Escalating to root
 
    Once again we'll use `sudo -l` to see what service/script we have access as root without a password.
    
