@@ -15,19 +15,19 @@ Objectives:
 
 ## Table of Content
 
-1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#1use-nmap-to-scan-the-network)
-2. [Visiting the web](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#2-visit-the-website)
-3. [Attempting SSH login](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#3-attempt-an-ssh-login)
-4. [dirb reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#4-well-run-drib)
-5. [WPScan reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#5-use-wpscan)
-6. [Prepairing the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#5-use-wpscan)
+1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#11-getting-the-second-flag)
+2. [Visiting the web](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#2-visiting-the-web)
+3. [Attempting SSH login](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#3-attempting-ssh-login)
+4. [dirb reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#4-dirb-reconeisance)
+5. [WPScan reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#5-wpscan-reconeisance)
+6. [Prepairing the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#6-prepairing-the-exploit)
 7. [Using the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#7-using-the-exploit)
-8. [Getting the SSH Key](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#8-get-a-user-ssh-key)
-9. [First user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#9-retreiving-the-first-user-flag)
+8. [Getting the SSH Key](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#8-getting-the-ssh-key)
+9. [First user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#9-first-user-flag)
 10. [Changing Users](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#10-changing-users)
-11. [Second user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#11-getting-the-second-flag)
-12. [Escalating to root](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#12-escalating-privileges-to-root)
-13. [Third flag]()
+11. [Second user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#11-second-user-flag)
+12. [Escalating to root](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#12-escalating-to-root)
+13. [Third flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#13-third-flag)
   
 ---
 
