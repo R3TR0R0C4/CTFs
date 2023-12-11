@@ -14,52 +14,54 @@ Tryhackme [link](https://tryhackme.com/room/agentsudoctf)
 
     `nmap -A VICTIM_IP`
 
-    ![](img/1.png)
+    ![](img/AgentSudo1.png)
 
     We can see 3 open ports.
 
     If we visit the web page of the machine we can see the next message:
    
-    ![](img/2.png)
+    ![](img/AgentSudo2.png)
    
-    Due to the machine name and the en of the message I tried to change the user agent to use the alphabet with curl:
+   <br>
+
+    Due to the machine name and the end of the message I tried to change the user agent to use the alphabet with curl:
 
     `curl -U "R" -L VICTIM_IP`
 
-     With the user agent as "R" this is what we see, knowing that there are 25 agents, plus the boss, wich is "R"
+    <br>
 
-     ![](img/3.png)
+    With the user agent as "R" this is what we see, knowing that there are 25 agents, plus the boss, wich is "R"
+
+    ![](img/AgentSudo3.png)
+   <br>
+
+    I then tried to change the user agent to, "A", then "B" and finally "C" and found this:
    
-     I then tried to change the user agent to, "A", then "B" and finally "C" and found this:
+    ![](img/AgentSudo4.png)
+<br>
+
+    Knowing that the user is "chris" with a weak password I then tried to use hydra with the john.lst dicctionary:
+
+   ![](img/AgentSudo5.png)
+
+    And found that the password is "crystal"
    
-     ![](img/4.png)
+   ![](img/AgentSudo6.png)
 
-     Knowing that the user is "chris" with a weak password I then tried to use hydra with the john.lst dicctionary:
+    Then logged in with filezilla using "chris" and "crystal":
 
-   ![](img/5.png)
+   ![](img/AgentSudo7.png)
 
-And found that the password is "crystal"
+   <br>
+    Then downloaded all the files
    
-   ![](img/6.png)
-
-And logged in with filezilla:
-
-   ![](img/7.png)
-
-   Then downloaded the three files
+    If we cat the content of file "To_agentJ.txt" we see:
    
-   and cat the file "To_agentJ.txt":
-   
-   ![](img/8.png)
+    ![](img/AgentSudo8.png)
 
-   we know that one of the files contains more data, with steganography, for that the tool binwalk will show
-
-  By the contents of this file we can guess that one of the files has files hiden
+    With this message we can deduce that one or more of the pics downloaded contains more info, probably with steganography, for that binwalk can be useful
+<br>
    
-     * There are 3 ports open.
-  
-     * You redirect yourself to a secret page changing the user-agent
-   
-     * The agents name is "chris"
+    With binwalk on the two files we can see that "cute-alien.jpg" contains a JPEG image and "cutie.png" contains, a PNG image, and ZIP files:
+    ![](img/AgentSudo9.png)
 
-3. 
