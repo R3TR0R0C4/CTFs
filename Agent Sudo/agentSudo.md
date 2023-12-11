@@ -21,25 +21,19 @@ Tryhackme [link](https://tryhackme.com/room/agentsudoctf)
     If we visit the web page of the machine we can see the next message:
    
     ![](img/AgentSudo2.png)
-   
    <br>
-
     Due to the machine name and the end of the message I tried to change the user agent to use the alphabet with curl:
 
     `curl -U "R" -L VICTIM_IP`
-
     <br>
-
     With the user agent as "R" this is what we see, knowing that there are 25 agents, plus the boss, wich is "R"
 
     ![](img/AgentSudo3.png)
    <br>
-
     I then tried to change the user agent to, "A", then "B" and finally "C" and found this:
    
     ![](img/AgentSudo4.png)
 <br>
-
     Knowing that the user is "chris" with a weak password I then tried to use hydra with the john.lst dicctionary:
 
    ![](img/AgentSudo5.png)
@@ -51,7 +45,6 @@ Tryhackme [link](https://tryhackme.com/room/agentsudoctf)
     Then logged in with filezilla using "chris" and "crystal":
 
    ![](img/AgentSudo7.png)
-
    <br>
     Then downloaded all the files
    
@@ -61,7 +54,6 @@ Tryhackme [link](https://tryhackme.com/room/agentsudoctf)
 
     With this message we can deduce that one or more of the pics downloaded contains more info, probably with steganography, for that binwalk can be useful
 <br>
-   
     With binwalk on the two files we can see that "cute-alien.jpg" contains a JPEG image and "cutie.png" contains, a PNG image, and ZIP files:
     ![](img/AgentSudo9.png)
 
