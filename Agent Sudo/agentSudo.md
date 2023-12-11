@@ -56,4 +56,9 @@ Tryhackme [link](https://tryhackme.com/room/agentsudoctf)
 <br>
     With binwalk on the two files we can see that "cute-alien.jpg" contains a JPEG image and "cutie.png" contains, a PNG image, and ZIP files:
     ![](img/AgentSudo9.png)
+<br>
+    To get the steg password we will use the tool "stegcracker" on the image "cute-alien.jpg", as PNG files are unsuported, this will highly depend on the CPU speed of our machine.
+    ![](img/AgentSudo10.png)
 
+    Until we finally get the password "Area51":
+    ![](img/AgentSudo11.png)
