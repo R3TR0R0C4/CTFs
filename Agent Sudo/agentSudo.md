@@ -73,14 +73,14 @@ Tools Used:
     * We want to know what's inside the zip file on the "cutie.png" photo, for that the first thing we'll do is extract the contents, we can see a new folder "_cutie.png.extracted":
     ![](img/AgentSudo10.png)
 
-    The folder contains a txt file (it's empty) and a zip file, as it's password locked, we'll use the tool "zip2john" to extract a hash and then get it into a file we'll call "8702.hash"
-    ![](img/AgentSudo11.png)
+        The folder contains a txt file (it's empty) and a zip file, as it's password locked, we'll use the tool "zip2john" to extract a hash and then get it into a file we'll call "8702.hash", then using john the ripper we can get the original password, wich is "alien":
+        ![](img/AgentSudo11.png)
 <br>
     * To get the steg password we will use the tool "stegcracker" on the image "cute-alien.jpg".
     ![](img/AgentSudo10a.png)
 
 
     Until we finally get the password "Area51":
-    ![](img/AgentSudo12.png)
+    ![](img/AgentSudo.png)
 <br>
 
