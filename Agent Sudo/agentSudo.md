@@ -114,5 +114,5 @@ Tools Used:
     Then put the code into a .py file and execute it, then input the current user and password:
     ![](img/AgentSudo22.png)
 <br>
-    Then we can cd into our root's home, cat the root.txt and get the root flag, and the Agent R name "DesKel" 
+    Then we can cd into our root's home, cat the root.txt and get the root flag, and the Agent R name "DesKel". 
     ![](img/AgentSudo23.png)
