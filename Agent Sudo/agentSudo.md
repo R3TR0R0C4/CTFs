@@ -18,6 +18,7 @@ Tools Used:
 * zip2john
 * John the Ripper
 * stegcracker
+* steghide
 
 
 ---
@@ -77,10 +78,21 @@ Tools Used:
         ![](img/AgentSudo11.png)
 <br>
     * To get the steg password we will use the tool "stegcracker" on the image "cute-alien.jpg".
-    ![](img/AgentSudo10a.png)
+    ![](img/AgentSudo12.png)
 
 
-    Until we finally get the password "Area51":
-    ![](img/AgentSudo.png)
+        Until we finally get the password "Area51":
+        ![](img/AgentSudo13.png) 
 <br>
+
+    Then we will extract the zip file with the obtained password, now the file "To_agentR.txt" is completed and can be read with cat:
+    ![](img/AgentSudo14.png)
+<br>
+    Then, with the "Area51" password we can use the tool "steghide" to extract the contents of the file "cute-alien.jpg" (we can only do this on .jpg files, as .png files are unsupported)
+    ![](img/AgentSudo15.png)
+
+    As we can see there's a username mentioned "james" and it's password "hackerrules!"
+
+    We can now try to login with ssh through this user:
+    
 
