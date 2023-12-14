@@ -97,3 +97,22 @@ Tools Used:
     ![](img/AgentSudo16.png)
 
     ![](img/AgentSudo17.png)
+<br>
+    Then we can get the "Alien_autopsy.jpg" to investigate further, for that i'll use scp:
+    ![](img/AgentSudo18.png)
+
+    Binwalk doesn't show anything out of the ordinary, there is some exif data, but it isn't useful.
+<br>
+    A google images reverse search doesn't show anything, with tineye and the clue of fox news, i've found a website and the case:
+
+    ![](img/AgentSudo19.png)
+    ![](img/AgentSudo20.png)
+<br>
+    I've tried to look for the linux kernel exploits, but couldn't find anything useful, so, with "sudo -l" we can find what privileges we have, we habe access to "/bin/bash", and with a google search of "exploit /bin/bash" we find this:
+    ![](img/AgentSudo21.png)
+    
+    Then put the code into a .py file and execute it, then input the current user and password:
+    ![](img/AgentSudo22.png)
+<br>
+    Then we can cd into our root's home, cat the root.txt and get the root flag, and the Agent R name "DesKel" 
+    ![](img/AgentSudo23.png)
