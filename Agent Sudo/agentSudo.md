@@ -92,7 +92,8 @@ Tools Used:
     ![](img/AgentSudo15.png)
 
     As we can see there's a username mentioned "james" and it's password "hackerrules!"
-
+<br>
     We can now try to login with ssh through this user:
-    
+    ![](img/AgentSudo16.png)
 
+    ![](img/AgentSudo17.png)
