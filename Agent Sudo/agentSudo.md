@@ -52,13 +52,19 @@ Tryhackme [link](https://tryhackme.com/room/agentsudoctf)
    
     ![](img/AgentSudo8.png)
 
-    With this message we can deduce that one or more of the pics downloaded contains more info, probably with steganography, for that binwalk can be useful
+    With this message we can deduce that one or more of the pics downloaded contains more info, probably with steganography, for that binwalk can be useful.
 <br>
-    With binwalk on the two files we can see that "cute-alien.jpg" contains a JPEG image and "cutie.png" contains, a PNG image, and ZIP files:
+    With binwalk on the two files we can see that "cute-alien.jpg" contains only a JPEG image and "cutie.png" contains, a PNG image, and ZIP files:
     ![](img/AgentSudo9.png)
 <br>
-    To get the steg password we will use the tool "stegcracker" on the image "cute-alien.jpg", as PNG files are unsuported, this will highly depend on the CPU speed of our machine.
+    * We want to know what's inside the zip file on the "cutie.png" photo, for that the first thing we'll do is extract the contents:
     ![](img/AgentSudo10.png)
+<br>
+    * To get the steg password we will use the tool "stegcracker" on the image "cute-alien.jpg".
+    ![](img/AgentSudo10a.png)
+
 
     Until we finally get the password "Area51":
     ![](img/AgentSudo11.png)
+<br>
+
