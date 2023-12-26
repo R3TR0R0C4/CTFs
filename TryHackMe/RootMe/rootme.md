@@ -17,34 +17,34 @@ Tools Used:
 
 1.  Nmap Scan
 
-        Using `nmap -a IP` we will enumerate all the actie ports and versions of the machine.
+    Using `nmap -a IP` we will enumerate all the actie ports and versions ofthe machine.
 
-        ![](img/rootme1.png)
+    ![](img/rootme1.png)
 
-        We can see that apache 2.4.29 is running on port 80 and ssh 7.6 on port 22.
-        Visiting the web we can see that there is a rootme banner, but nothing useful.
+    We can see that apache 2.4.29 is running on port 80 and ssh 7.6 on port22.
+    Visiting the web we can see that there is a rootme banner, but nothinguseful.
 
-        ![](img/rootme2.png)
+    ![](img/rootme2.png)
 
     <br>
 
 2.  Dirbuster
     Then with dirbusters or dirb we can see that there are more directories, this is the command we'll use to see what are some of the contents on the machine:
 
-        `dirbuster dir -u http://VICTIM_IP -w /usr/wordlists/dirbuster/directory-list-1.0.txt`
+    `dirbuster dir -u http://VICTIM_IP -w /usr/wordlists/dirbusterdirectory-list-1.0.txt`
 
-        ![](img/rootme3.png)
+    ![](img/rootme3.png)
 
-        As we can see `/panel/`, `/uploads/`, there's a css/js directory.
+    As we can see `/panel/`, `/uploads/`, there's a css/js directory.
 
     <br>
-        Visiting the `/panel/` subdirectory we can see that it's a section to upload files:
+    Visiting the `/panel/` subdirectory we can see that it's a section toupload files:
 
-        ![](img/rootme4.png)
+    ![](img/rootme4.png)
 
-        And visiting `/uploads` we can see the folder `uploads` contents:
+    And visiting `/uploads` we can see the folder `uploads` contents:
 
-        ![](img/rootme5.png)
+    ![](img/rootme5.png)
 
     <br>
 
@@ -59,7 +59,7 @@ Tools Used:
     - Change the `ip = ''` to our attack machine's ip
     - Optionally the port
 
-      ![](img/rootme7.png)
+        ![](img/rootme7.png)
 
     Then i'll change the extension from `.php` to `.phtml`, as the website doesn't allow the upload of php files, but it still can upload and execute the phtml.
 
