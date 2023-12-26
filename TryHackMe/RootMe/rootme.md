@@ -15,7 +15,6 @@ Tools Used:
 - gobuster
 - any text editor
 - ncat
-- python (on the victim machine)
 
 ---
 
