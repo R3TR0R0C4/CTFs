@@ -15,7 +15,6 @@ Tools Used:
 - dirbuster
 - any text editor
 - ncat
-- python (on the victim machine)
 
 ---
 
