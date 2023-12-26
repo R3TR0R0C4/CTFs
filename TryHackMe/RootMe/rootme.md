@@ -12,6 +12,10 @@ Tools Used:
 
 - Kali Linux
 - NMAP
+- dirbuster
+- any text editor
+- ncat
+- python (on the victim machine)
 
 ---
 
@@ -84,3 +88,29 @@ Tools Used:
     As we can see we're logged-in as `www-data`:
 
     ![](img/rootme13.png)
+
+    In the `/var/www` there will be the user flag: 
+
+    ![](img/rootme14.png)
+    
+    Then, by using the clue of the "Search for files with SUID permission, which file is weird?" i've used the command `find /`, it will search on the root of the system, `-perm /4000` we'll search for the specific permissions, and with `2>/dev/null` it won't return all the errors, and only show the files it has access to.
+    
+    This will be the resulting command:
+    `find / -perm /4000`
+
+    With this result:
+
+    ![](img/rootme15.png)
+
+    the `/usr/bin/python` is interesting, as we could use it to our advantage
+
+    By using python we will be able to get a privilege escalation with the next command:
+    `python -c 'import os; os.execl("/bin/sh", "sh", "-p")'`
+    
+    first of all we are calling python with the option `-c` to give it a command to execute, `import os;` will import the os library and give us access to `execl` wich in this case is used to replace the current process (python) with a new one (wich will be a shell like sh or bash) after giving python the path of the executable with `"/bin/sh"` (wich will be the shell to use) we'll give it an argument in this case `sh` (we'll replace it with whatever shell we want to use) with the flag `-p` we're indicating that we want a login shell, and thus giving us root access:
+
+    ![](img/rootme16.png)
+
+    We can finally get the root flag that's on the root's home:
+
+    ![](img/rootme17.png)
