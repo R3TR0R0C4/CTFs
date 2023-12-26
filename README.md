@@ -6,7 +6,7 @@ This is just a repo for my ctfs writeups for some cybersecurity practice.
 
   * [Agent Sudo](TryHackMe/AgentSudo/agentSudo.md)
   * [RootMe](TryHackMe/RootMe/rootme.md)
-  * [Basic Pentesting](TryHackMe/Basic Pentesting/basicPentesting.md) WIP
+  * [Basic Pentesting](TryHackMe/BasicPentesting/basicPentesting.md) WIP
 
 ### VulnHub
 
