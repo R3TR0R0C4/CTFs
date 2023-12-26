@@ -33,6 +33,7 @@ Tools Used:
     <br>
 
 2.  Dirbuster
+
     Then with dirbusters or dirb we can see that there are more directories, this is the command we'll use to see what are some of the contents on the machine:
 
     `dirbuster dir -u http://VICTIM_IP -w /usr/wordlists/dirbusterdirectory-list-1.0.txt`
@@ -53,6 +54,7 @@ Tools Used:
     <br>
 
 3.  Exploit Preparation
+
     When visiting the page source for the panel page i saw that it's running with php, for the exploit i'll use a built-in exploit in kali.
     The exploit in queston is situated in `/usr/share/webshells/php` and it's `php-reverse-shell.php` and i'll edit it with nano:
 
@@ -64,6 +66,8 @@ Tools Used:
     - Optionally the port
 
         ![](img/rootme7.png)
+
+4. Using the exploit
 
     Then i'll change the extension from `.php` to `.phtml`, as the website doesn't allow the upload of php files, but it still can upload and execute the phtml.
 
@@ -89,10 +93,14 @@ Tools Used:
 
     ![](img/rootme13.png)
 
+5. Getting the user flag
+
     In the `/var/www` there will be the user flag: 
 
     ![](img/rootme14.png)
-    
+
+6. Privilege escalation
+
     Then, by using the clue of the "Search for files with SUID permission, which file is weird?" i've used the command `find /`, it will search on the root of the system, `-perm /4000` we'll search for the specific permissions, and with `2>/dev/null` it won't return all the errors, and only show the files it has access to.
     
     This will be the resulting command:
@@ -110,6 +118,8 @@ Tools Used:
     first of all we are calling python with the option `-c` to give it a command to execute, `import os;` will import the os library and give us access to `execl` wich in this case is used to replace the current process (python) with a new one (wich will be a shell like sh or bash) after giving python the path of the executable with `"/bin/sh"` (wich will be the shell to use) we'll give it an argument in this case `sh` (we'll replace it with whatever shell we want to use) with the flag `-p` we're indicating that we want a login shell, and thus giving us root access:
 
     ![](img/rootme16.png)
+
+7. Getting the root flag
 
     We can finally get the root flag that's on the root's home:
 
