@@ -12,7 +12,7 @@ Tools Used:
 
 - Kali Linux
 - NMAP
-- dirbuster
+- gobuster
 - any text editor
 - ncat
 - python (on the victim machine)
@@ -32,11 +32,11 @@ Tools Used:
 
     <br>
 
-2.  Dirbuster
+2.  Gobuster
 
-    Then with dirbusters or dirb we can see that there are more directories, this is the command we'll use to see what are some of the contents on the machine:
+    Then with gobuster or dirbuster we can see that there are more directories, this is the command we'll use to see what are some of the contents on the machine:
 
-    `dirbuster dir -u http://VICTIM_IP -w /usr/wordlists/dirbusterdirectory-list-1.0.txt`
+    `gobuster dir -u http://VICTIM_IP -w /usr/wordlists/dirbusterdirectory-list-1.0.txt`
 
     ![](img/rootme3.png)
 
