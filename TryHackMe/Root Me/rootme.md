@@ -9,50 +9,57 @@ Tryhackme [link](https://tryhackme.com/room/rrootme)
 ---
 
 Tools Used:
-* Kali Linux
-* NMAP
+
+- Kali Linux
+- NMAP
 
 ---
 
-1. Nmap Scan
+1.  Nmap Scan
 
-    Using `nmap -a IP` we will enumerate all the actie ports and versions of the machine.
+        Using `nmap -a IP` we will enumerate all the actie ports and versions of the machine.
 
-    ![](img/rootme1.png)
+        ![](img/rootme1.png)
 
-    We can see that apache 2.4.29 is running on port 80 and ssh 7.6 on port 22.
-    Visiting the web we can see that there is a rootme banner, but nothing useful.
+        We can see that apache 2.4.29 is running on port 80 and ssh 7.6 on port 22.
+        Visiting the web we can see that there is a rootme banner, but nothing useful.
 
-    ![](img/rootme2.png)
-<br>
-2. Dirbuster
+        ![](img/rootme2.png)
+
+    <br>
+
+2.  Dirbuster
     Then with dirbusters or dirb we can see that there are more directories, this is the command we'll use to see what are some of the contents on the machine:
 
-    `dirbuster dir -u http://VICTIM_IP -w /usr/wordlists/dirbuster/directory-list-1.0.txt`
+        `dirbuster dir -u http://VICTIM_IP -w /usr/wordlists/dirbuster/directory-list-1.0.txt`
 
-    ![](img/rootme3.png)
+        ![](img/rootme3.png)
 
-    As we can see `/panel/`, `/uploads/`, there's a css/js directory. 
-<br>
-    Visiting the `/panel/` subdirectory we can see that it's a section to upload files:
+        As we can see `/panel/`, `/uploads/`, there's a css/js directory.
 
-    ![](img/rootme4.png)
+    <br>
+        Visiting the `/panel/` subdirectory we can see that it's a section to upload files:
 
-    And visiting `/uploads` we can see the folder `uploads` contents:
+        ![](img/rootme4.png)
 
-    ![](img/rootme5.png)
-<br>
-3. Exploit Preparation
+        And visiting `/uploads` we can see the folder `uploads` contents:
+
+        ![](img/rootme5.png)
+
+    <br>
+
+3.  Exploit Preparation
     When visiting the page source for the panel page i saw that it's running with php, for the exploit i'll use a built-in exploit in kali.
     The exploit in queston is situated in `/usr/share/webshells/php` and it's `php-reverse-shell.php` and i'll edit it with nano:
 
     ![](img/rootme6.png)
 
-    The edits that need to be done are: 
-    * Change the `ip = ''` to our attack machine's ip
-    * Optionally the port
+    The edits that need to be done are:
 
-        ![](img/rootme7.png)
+    - Change the `ip = ''` to our attack machine's ip
+    - Optionally the port
+
+      ![](img/rootme7.png)
 
     Then i'll change the extension from `.php` to `.phtml`, as the website doesn't allow the upload of php files, but it still can upload and execute the phtml.
 
@@ -75,6 +82,5 @@ Tools Used:
     ![](img/rootme12.png)
 
     As we can see we're logged-in as `www-data`:
-    ![](img/rootme13.png)
 
-    
+    ![](img/rootme13.png)
