@@ -52,32 +52,33 @@ Tools Used:
     I then tried to change the user agent to, "A", then "B" and finally "C" and found this:
 
     ![](img/AgentSudo4.png)
-
-
----
-
+    
     Knowing that the user is "chris" with a weak password I then tried to use hydra with the john.lst dicctionary:
 
-   ![](img/AgentSudo5.png)
+    ![](img/AgentSudo5.png)
 
-    And found that the password is "crystal"
-   
-   ![](img/AgentSudo6.png)
+    And found that the password is "crystal":
 
-    Then logged in with filezilla using "chris" and "crystal":
+    ![](img/AgentSudo6.png)
 
-   ![](img/AgentSudo7.png)
+    Then logged into the ftp server using "chris" and "crystal":
+
+    ![](img/AgentSudo7.png)
 
     Then downloaded all the files
-   
+
     If we cat the content of file "To_agentJ.txt" we see:
-   
+
     ![](img/AgentSudo8.png)
 
     With this message we can deduce that one or more of the pics downloaded contains more info, probably with steganography, for that binwalk can be useful.
-<br>
+
     With binwalk on the two files we can see that "cute-alien.jpg" contains only a JPEG image and "cutie.png" contains, a PNG image, and ZIP files:
+
     ![](img/AgentSudo9.png)
+
+---  
+   
 <br>
     * We want to know what's inside the zip file on the "cutie.png" photo, for that the first thing we'll do is extract the contents, we can see a new folder "_cutie.png.extracted":
     ![](img/AgentSudo10.png)
