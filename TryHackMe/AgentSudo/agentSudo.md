@@ -59,7 +59,9 @@ Tools Used:
     Then logged in with filezilla using "chris" and "crystal":
 
    ![](img/AgentSudo7.png)
+
    <br>
+   
     Then downloaded all the files
    
     If we cat the content of file "To_agentJ.txt" we see:
