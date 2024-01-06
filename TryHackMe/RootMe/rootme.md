@@ -22,12 +22,12 @@ Tools Used:
 
     Using `nmap -a IP` we will enumerate all the actie ports and versions ofthe machine.
 
-    ![](img/rootme1.png)
+    ![](img/rootme01.png)
 
-    We can see that apache 2.4.29 is running on port 80 and ssh 7.6 on port22.
+    We can see that apache 2.4.29 is running on port 80 and ssh 7.6 on port 22.
     Visiting the web we can see that there is a rootme banner, but nothinguseful.
 
-    ![](img/rootme2.png)
+    ![](img/rootme02.png)
 
     <br>
 
@@ -37,18 +37,18 @@ Tools Used:
 
     `gobuster dir -u http://VICTIM_IP -w /usr/wordlists/dirbusterdirectory-list-1.0.txt`
 
-    ![](img/rootme3.png)
+    ![](img/rootme03.png)
 
     As we can see `/panel/`, `/uploads/`, there's a css/js directory.
 
     <br>
     Visiting the `/panel/` subdirectory we can see that it's a section toupload files:
 
-    ![](img/rootme4.png)
+    ![](img/rootme04.png)
 
     And visiting `/uploads` we can see the folder `uploads` contents:
 
-    ![](img/rootme5.png)
+    ![](img/rootme05.png)
 
     <br>
 
@@ -57,24 +57,24 @@ Tools Used:
     When visiting the page source for the panel page i saw that it's running with php, for the exploit i'll use a built-in exploit in kali.
     The exploit in queston is situated in `/usr/share/webshells/php` and it's `php-reverse-shell.php` and i'll edit it with nano:
 
-    ![](img/rootme6.png)
+    ![](img/rootme06.png)
 
     The edits that need to be done are:
 
     - Change the `ip = ''` to our attack machine's ip
     - Optionally the port
 
-        ![](img/rootme7.png)
+        ![](img/rootme07.png)
 
 4. Using the exploit
 
     Then i'll change the extension from `.php` to `.phtml`, as the website doesn't allow the upload of php files, but it still can upload and execute the phtml.
 
-    ![](img/rootme8.png)
+    ![](img/rootme08.png)
 
     Then I'll upload it to the portal:
 
-    ![](img/rootme9.png)
+    ![](img/rootme09.png)
 
     Then we'll open up a ncat connection to the port we indicated previously on the exploit:
 
