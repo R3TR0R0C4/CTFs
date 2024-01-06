@@ -22,32 +22,40 @@ Tools Used:
 
 
 ---
-1. nmap scan
 
-    Enumerate the machine and get all the important information
+1. nmap scan
+   
+    Enumerate the machine and get all the important information.
+
+    By using the next command:
 
     `nmap -A VICTIM_IP`
 
+    We can see 3 open ports
+
     ![](img/AgentSudo1.png)
 
-    We can see 3 open ports.
+    Visiting the website we can see the next message:
 
-    If we visit the web page of the machine we can see the next message:
-   
     ![](img/AgentSudo2.png)
-   <br>
+
+2. Changing user agent
+
     Due to the machine name and the end of the message I tried to change the user agent to use the alphabet with curl:
 
     `curl -U "R" -L VICTIM_IP`
-    <br>
+
     With the user agent as "R" this is what we see, knowing that there are 25 agents, plus the boss, wich is "R"
 
     ![](img/AgentSudo3.png)
-   <br>
+
     I then tried to change the user agent to, "A", then "B" and finally "C" and found this:
-   
+
     ![](img/AgentSudo4.png)
-<br>
+
+
+---
+
     Knowing that the user is "chris" with a weak password I then tried to use hydra with the john.lst dicctionary:
 
    ![](img/AgentSudo5.png)
