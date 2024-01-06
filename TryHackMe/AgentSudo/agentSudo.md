@@ -53,6 +53,8 @@ Tools Used:
 
     ![](img/AgentSudo4.png)
     
+3. Hydra ftp brute force
+
     Knowing that the user is "chris" with a weak password I then tried to use hydra with the john.lst dicctionary:
 
     ![](img/AgentSudo5.png)
@@ -67,6 +69,8 @@ Tools Used:
 
     Then downloaded all the files
 
+4. Steganography
+
     If we cat the content of file "To_agentJ.txt" we see:
 
     ![](img/AgentSudo8.png)
@@ -77,51 +81,68 @@ Tools Used:
 
     ![](img/AgentSudo9.png)
 
----  
-   
-<br>
     * We want to know what's inside the zip file on the "cutie.png" photo, for that the first thing we'll do is extract the contents, we can see a new folder "_cutie.png.extracted":
-    ![](img/AgentSudo10.png)
+  
+        ![](img/AgentSudo10.png)
 
         The folder contains a txt file (it's empty) and a zip file, as it's password locked, we'll use the tool "zip2john" to extract a hash and then get it into a file we'll call "8702.hash", then using john the ripper we can get the original password, wich is "alien":
+
         ![](img/AgentSudo11.png)
-<br>
+
     * To get the steg password we will use the tool "stegcracker" on the image "cute-alien.jpg".
-    ![](img/AgentSudo12.png)
 
+        ![](img/AgentSudo12.png)
 
-        Until we finally get the password "Area51":
-        ![](img/AgentSudo13.png) 
-<br>
+    Until we finally get the password "Area51":
 
-    Then we will extract the zip file with the obtained password, now the file "To_agentR.txt" is completed and can be read with cat:
+    ![](img/AgentSudo13.png)
+
+    Then we will extract the zip file with the obtained password, now the file "To_agentR.txt" is completed and can be read:
+
     ![](img/AgentSudo14.png)
-<br>
+
     Then, with the "Area51" password we can use the tool "steghide" to extract the contents of the file "cute-alien.jpg" (we can only do this on .jpg files, as .png files are unsupported)
+
     ![](img/AgentSudo15.png)
 
+5. SSH login
+
     As we can see there's a username mentioned "james" and it's password "hackerrules!"
-<br>
+
     We can now try to login with ssh through this user:
+
     ![](img/AgentSudo16.png)
 
+    And we get the user flag on the user's home:
+
     ![](img/AgentSudo17.png)
-<br>
+
+6. Autopsy image reverse search
+
     Then we can get the "Alien_autopsy.jpg" to investigate further, for that i'll use scp:
+
     ![](img/AgentSudo18.png)
 
     Binwalk doesn't show anything out of the ordinary, there is some exif data, but it isn't useful.
-<br>
+
     A google images reverse search doesn't show anything, with tineye and the clue of fox news, i've found a website and the case:
 
     ![](img/AgentSudo19.png)
+
     ![](img/AgentSudo20.png)
-<br>
+
+7. Privilege escalation
+
     I've tried to look for the linux kernel exploits, but couldn't find anything useful, so, with "sudo -l" we can find what privileges we have, we habe access to "/bin/bash", and with a google search of "exploit /bin/bash" we find this:
+
     ![](img/AgentSudo21.png)
-    
+
     Then put the code into a .py file and execute it, then input the current user and password:
+
     ![](img/AgentSudo22.png)
-<br>
+    
+8. Root flag
+
     Then we can cd into our root's home, cat the root.txt and get the root flag, and the Agent R name "DesKel". 
+
     ![](img/AgentSudo23.png)
