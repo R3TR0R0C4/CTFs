@@ -119,19 +119,23 @@ Aqui trobem una altra Flag:
 
     ![](img/insebrectf21.png)
 
-    Podem veure que l'imatge jpg no conté res d'important pel que problablement tingui algun element amagat amb esteganografia.
+    Podem veure que l'imatge jpg no conté res d'important, pel que revisarem que no tingui res amagat amb esteganografia
 
     ![](img/insebrectf22.png)
 
+    Amb l'eina `binwalk` comprovem el contingut de l'imatge, podem veure que no hi ha res:
 
     ![](img/insebrectf23.png)
 
-    
-    
-
+    Després comprovarém el contingut de l'arxiu zip, veiem que està bloquejat amb una contrasenya:
     
     ![](img/insebrectf24.png)
 
+    Després utilitzarem "zip2john" per intentar atacar la contrasenya:
+
+    ![](img/insebrectf25.png)
+
+     amb John The Ripperjohn
 ---
 
 Llistat de Flags:
@@ -142,7 +146,7 @@ Llistat de Flags:
 
 * FTP (mode anonim)
  
-  `1 FLAG{Besa mi brillante trasero metálico.} - 10 Punts`
+  `FLAG{Besa mi brillante trasero metálico.} - 10 Punts`
 
 * Cockpit Services 
   
