@@ -40,5 +40,20 @@ Podem veure que hem trobat un altre flag, i una carpta `pub` que està buida:
 
 ![](img/insebrectf07.png)
 
+Aqui podem veure una altra de les flags:
+
 ![](img/insebrectf08.png)
+
+
+### 5. Cockpit web service
+
+Només entrar a l'adreça al port `9090` veiem una altra flag:
+
+![](img/insebrectf09.png)
+
+### 6. Servei desconegut p. 13337
+
+Visitant l'ip al port `13337` podem veure un altra flag:
+
+![](img/insebrectf10.png)
 
