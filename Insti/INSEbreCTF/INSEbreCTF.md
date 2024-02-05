@@ -57,3 +57,103 @@ Visitant l'ip al port `13337` podem veure un altra flag:
 
 ![](img/insebrectf10.png)
 
+### 7. robots.txt
+
+Tornant a mirar l'escaneig de dirb, podemm veure un robots.txt, aquest arxiu s'utilitza per indicar a web-crawlers quins directoris i/o arxius no poden accedir
+
+Podem veure un directori `/cgi-bin/` al que no tením accés, pero sí a dos arxius:
+
+![](img/insebrectf11.png)
+
+* `root_shell.cgi`
+
+    Aquest és el contingut de l'arxiu, no pareix massa util, així que almenys de moment el deixarem de vanda.
+
+    ![](img/insebrectf12.png)
+
+<br>
+
+* `injection.cgi`
+
+    En aquest arxiu podem veure un formulari, amb el text `Esperant ; ordres (pista!...)` si utilitzem un punt i coma podem executar comandes i que ens ho retorni: 
+
+    ![](img/insebrectf13.png)
+
+    Per exemple amb la comanda `whoami`
+
+    ![](img/insebrectf14.png)
+
+    Intentem utilitzar `cat` per veure els continguts de `/etc/passwd` pero pareix que han canviat el programa de cat per que només imprimeix-qui un gat en ASCII:
+
+    ![](img/insebrectf15.png)
+
+    Pel que utilitzarém `more`, podem veure un usuari `Summer`, que si mirem al comentari de l'arxiu `/passwords/passwords.html` podria estar rel·lacionat amb la contrasenya "winter", també podem veure usuaris com "Bender" i "Fry":
+
+    ![](img/insebrectf16.png)
+
+### 8. Login SSH
+
+Podem iniciar sessió SSH amb l'usuari "Summer" i contrasenya "winter" al port 22222:
+
+![](img/insebrectf17.png)
+
+Aqui trobem una altra Flag:
+
+![](img/insebrectf18.png)
+
+### 9. Homes d'altres usuaris
+
+* Home de BENDER:
+
+    Entrant a la home de "Bender" podem veure una carpeta de `/home/Bender/BENDER_SAFE` podem veure un missatge xifrat en gpg, de moment no tenim la clau per deixifrar-lo.
+
+    ![](img/insebrectf19.png)
+
+* Home de FRY:
+
+    Dintre de la home de "FRY" podem veure veure una jpg `Safe_Password.jpg` i `journal.zip`
+
+    ![](img/insebrectf20.png)
+
+    Descarregarém els arxius amb scp:
+
+    ![](img/insebrectf21.png)
+
+    Podem veure que l'imatge jpg no conté res d'important pel que problablement tingui algun element amagat amb esteganografia.
+
+    ![](img/insebrectf22.png)
+
+
+    ![](img/insebrectf23.png)
+
+    
+    
+
+    
+    ![](img/insebrectf24.png)
+
+---
+
+Llistat de Flags:
+
+* Lloc web /passwords/FLAG.txt 
+  
+  `FLAG{¡Maldito abrelatas!¡Mataste a mi padre y ahora has venido a por mí!} - 10 Punts`
+
+* FTP (mode anonim)
+ 
+  `1 FLAG{Besa mi brillante trasero metálico.} - 10 Punts`
+
+* Cockpit Services 
+  
+  `FLAG {OH DIOS Mío, ELLA ESTÁ ATRAPADA EN UN BUCLE INFINITO DE REPETICIÓN... iY FRY ES IDIOTA!} - 10 PUNTS`
+
+* Port 13337 
+  
+  `FLAG{Han Encont radoMiBac kDoo rBender} - 10Punts`
+
+* User Summer 
+  
+  `FLAG{Tengo que revisar mi programa. Mmm... ¡Sí!} - 10 Punts`
+
+* 
