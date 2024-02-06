@@ -10,7 +10,11 @@
 
 ### 1. NMAP scan
 
+Escanejarem la màquina per veure quins serveis están corrent.
+
 ![](img/insebrectf01.png)
+
+Ja a que hem vist un servei web utilitzaré dirb per mirar de buscar que hi ha, ens resalta la carpeta `/passwords/`.
 
 ![](img/insebrectf02.png)
 
@@ -109,6 +113,16 @@ Aqui trobem una altra Flag:
 
     ![](img/insebrectf19.png)
 
+    Podem intentar usar gpg2john per intentar deixifrar la contrasenya de l'arxiu, primer el passaré a la màquina kali d'atac amb scp:
+
+    [](img/insebrectf19.png)
+
+    I després utilitzaré gpg2john per extraure el hash de l'arxiu gpg i després passar-lo per john the ripper:
+
+    [](img/insebrectf26.png)
+    
+<br>
+
 * Home de FRY:
 
     Dintre de la home de "FRY" podem veure veure una jpg `Safe_Password.jpg` i `journal.zip`
@@ -135,7 +149,9 @@ Aqui trobem una altra Flag:
 
     ![](img/insebrectf25.png)
 
-     amb John The Ripperjohn
+     amb John The Ripper
+
+  
 ---
 
 Llistat de Flags:
