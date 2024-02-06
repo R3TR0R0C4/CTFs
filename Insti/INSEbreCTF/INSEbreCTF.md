@@ -115,11 +115,15 @@ Aqui trobem una altra Flag:
 
     Podem intentar usar gpg2john per intentar deixifrar la contrasenya de l'arxiu, primer el passaré a la màquina kali d'atac amb scp:
   
-    [](img/insebrectf26.png)
+    ![](img/insebrectf26.png)
   
     I després utilitzaré gpg2john per extraure el hash de l'arxiu gpg i després passar-lo per john the ripper:
 
-    
+    ![](img/insebrectf27.png)
+
+    I finalment John the ripper:
+
+
     
 <br>
 
@@ -151,7 +155,24 @@ Aqui trobem una altra Flag:
 
      amb John The Ripper
 
-  
+### 10. Escalada de privilegis
+
+Aprofitant que tenim un accés d'ssh amb l'usuar `Summer` he intentat buscar una escalada de privilegis.
+
+Primer de tot necessitem saber en quina versió estem treballant
+
+Amb un `more /etc/fedora-release` veiem que estem treballant amb fedora 26
+
+![](img/insebrectf28.png)
+
+I amb un `uname -a` veiem que la versió del kernel és la `4.1
+
+![](img/insebrectf29.png)
+
+Apartir d'aquesta informació podem buscar un exploit, aquest és el que he trobat:
+
+link
+
 ---
 
 Llistat de Flags:
