@@ -169,9 +169,39 @@ I amb un `uname -a` veiem que la versió del kernel és la `4.1
 
 ![](img/insebrectf29.png)
 
-Apartir d'aquesta informació podem buscar un exploit, aquest és el que he trobat:
+Apartir d'aquesta informació podem buscar un exploit, aquest és el que he trobat: [link](https://vulners.com/zdt/1337DAY-ID-30705)
 
-link
+Amb gcc el compilaré i l'enviaré a la màquina:
+
+![](img/insebrectf30.png)
+
+Una vegada enviat entrem amb Summer i iniciem l'exploit, veurem que ara sóm l'usuari root:
+
+![](img/insebrectf31.png)
+
+### 11. Flag usuari root
+
+Navegant cap a la home del root podem veure una altra FLAG:
+
+![](img/insebrectf32.png)
+
+Aquesta és la FLAG
+
+![](img/insebrectf33.png)
+
+### 12. Flag port 60000
+
+Amb l'accés de root podem aprofitar per utilitzar lsof per veure quins ports están escoltant i a quins processos estàn relacionats.
+
+![](img/insebrectf34.png)
+
+Podem veure que el port 60000 està rel·lacionat amb nc, podem utilitzar nc o ncat per intentar connectar-nos.
+
+Podem veure una altra FLAG:
+
+![](img/insebrectf35.png)
+
+
 
 ---
 
@@ -190,11 +220,17 @@ Llistat de Flags:
   `FLAG {OH DIOS Mío, ELLA ESTÁ ATRAPADA EN UN BUCLE INFINITO DE REPETICIÓN... iY FRY ES IDIOTA!} - 10 PUNTS`
 
 * Port 13337 
-  
-  `FLAG{Han Encont radoMiBac kDoo rBender} - 10Punts`
+
+  `FLAG{HanEncontradoMiBackDoorBender} - 10Punts`
 
 * User Summer 
   
   `FLAG{Tengo que revisar mi programa. Mmm... ¡Sí!} - 10 Punts`
 
-* 
+* Home root
+
+  `FLAG{El espacio parece extenderse sin límites. Hasta que llegas al final y aparece un mono lanzándote barriles.} - 30 Punts`
+
+* ncat port 60000
+
+  `FLAG{Dale duro Fry. Dale...} - 10 Punts.`
