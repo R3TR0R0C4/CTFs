@@ -114,12 +114,12 @@ Aqui trobem una altra Flag:
     ![](img/insebrectf19.png)
 
     Podem intentar usar gpg2john per intentar deixifrar la contrasenya de l'arxiu, primer el passaré a la màquina kali d'atac amb scp:
-
-    [](img/insebrectf19.png)
-
+  
+    [](img/insebrectf26.png)
+  
     I després utilitzaré gpg2john per extraure el hash de l'arxiu gpg i després passar-lo per john the ripper:
 
-    [](img/insebrectf26.png)
+    
     
 <br>
 
