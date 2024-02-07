@@ -227,11 +227,11 @@ Llistat de Flags:
 
 * Cockpit Services 
   
-  `FLAG {OH DIOS Mío, ELLA ESTÁ ATRAPADA EN UN BUCLE INFINITO DE REPETICIÓN... iY FRY ES IDIOTA!} - 10 PUNTS`
+  `FLAG {Oh Dios mío, ella está atrapada en un bucle infinito de repetición... ¡Y Fry es idiota!} - 10 Punts`
 
 * Port 13337 
 
-  `FLAG{HanEncontradoMiBackDoorBender}- 10 Punts`
+  `FLAG{HanEncontradoMiBackDoorBender} - 10 Punts`
 
 * User Summer 
   
