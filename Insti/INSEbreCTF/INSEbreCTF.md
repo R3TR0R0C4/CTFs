@@ -113,16 +113,7 @@ Aqui trobem una altra Flag:
 
     ![](img/insebrectf19.png)
 
-    Podem intentar usar gpg2john per intentar deixifrar la contrasenya de l'arxiu, primer el passaré a la màquina kali d'atac amb scp:
-  
-    ![](img/insebrectf26.png)
-  
-    I després utilitzaré gpg2john per extraure el hash de l'arxiu gpg i després passar-lo per john the ripper:
-
-    ![](img/insebrectf27.png)
-
-    I finalment John the ripper:
-
+    De moment el deixaré de banda, podem veure la resolució a [Apartat 13](### 13. Missatge GPG)
 
     
 <br>
@@ -203,7 +194,7 @@ Podem veure una altra FLAG:
 
 ### 13. Missatge GPG
 
-Amb els nous permissos de root podem veure un historial de la shell de l'usuari root amb more, i podem veure una linia on s'executa una comanda `./safe 131333`
+Amb els nous permissos de root podem veure un historial de la shell de l'usuari root amb more, i podem veure una linia on s'executa una comanda `./safe 13**133**3`
 
 
 ![](img/insebrectf36.png)
@@ -249,3 +240,7 @@ Llistat de Flags:
 * Missatge GPG
  
   `FLAG{Y allaaaaaa vamoooooooos} - 20 Punts`
+
+* journal.zip
+
+  `FLAG{131333} - 20 Punts`
