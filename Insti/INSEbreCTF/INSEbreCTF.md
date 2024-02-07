@@ -113,39 +113,47 @@ Aqui trobem una altra Flag:
 
     ![](img/insebrectf19.png)
 
-    De moment el deixaré de banda, podem veure la resolució a [Apartat 13](### 13. Missatge GPG)
+    De moment el deixaré de banda, podem veure la resolució a [Apartat 13](/INSEbreCTF.md#13-missatge-gpg)
 
     
 <br>
 
 * Home de FRY:
 
-    Dintre de la home de "FRY" podem veure veure una jpg `Safe_Password.jpg` i `journal.zip`
+  Dintre de la home de "FRY" podem veure veure una jpg `Safe_Password.jpg` i `journal.zip`
 
-    ![](img/insebrectf20.png)
+  ![](img/insebrectf20.png)
 
-    Descarregarém els arxius amb scp:
+  Descarregarém els arxius amb scp:
 
-    ![](img/insebrectf21.png)
+  ![](img/insebrectf21.png)
 
-    Podem veure que l'imatge jpg no conté res d'important, pel que revisarem que no tingui res amagat amb esteganografia
+  Podem veure que l'imatge jpg no conté res d'important, pel que revisarem que no tingui res amagat amb esteganografia
 
-    ![](img/insebrectf22.png)
+  ![](img/insebrectf22.png)
 
-    Amb l'eina `binwalk` comprovem el contingut de l'imatge, podem veure que no hi ha res:
+  Amb l'eina `binwalk` comprovem el contingut de l'imatge, podem veure que no hi ha res:
 
-    ![](img/insebrectf23.png)
+  ![](img/insebrectf23.png)
 
-    Després comprovarém el contingut de l'arxiu zip, veiem que està bloquejat amb una contrasenya:
+  Després comprovarém el contingut de l'arxiu zip, veiem que està bloquejat amb una contrasenya:
     
-    ![](img/insebrectf24.png)
+  ![](img/insebrectf24.png)
 
-    Després utilitzarem "zip2john" per intentar atacar la contrasenya:
+  Utilitzarem "zip2john" per intentar atacar la contrasenya amb un atac de diccionari:
 
-    ![](img/insebrectf25.png)
+  ![](img/insebrectf25.png)
 
-     amb John The Ripper
+  Amb john the ripper podrém treure la contrasenya d'aquest arxiu:
 
+  ![](img/insebrectf38.png)
+
+  Amb 7z extreurel i veure el contingut, una altra flag!
+
+  ![](img/insebrectf39.png)
+
+  ![](img/insebrectf40.png)
+     
 ### 10. Escalada de privilegis
 
 Aprofitant que tenim un accés d'ssh amb l'usuar `Summer` he intentat buscar una escalada de privilegis.
@@ -194,7 +202,7 @@ Podem veure una altra FLAG:
 
 ### 13. Missatge GPG
 
-Amb els nous permissos de root podem veure un historial de la shell de l'usuari root amb more, i podem veure una linia on s'executa una comanda `./safe 13**133**3`
+Amb els nous permissos de root podem veure un historial de la shell de l'usuari root amb more, i podem veure una linia on s'executa una comanda `./safe 131333`
 
 
 ![](img/insebrectf36.png)
