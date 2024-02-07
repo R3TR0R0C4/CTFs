@@ -165,7 +165,7 @@ Amb un `more /etc/fedora-release` veiem que estem treballant amb fedora 26
 
 ![](img/insebrectf28.png)
 
-I amb un `uname -a` veiem que la versió del kernel és la `4.1
+I amb un `uname -a` veiem que la versió del kernel és la `4.11.8-300`
 
 ![](img/insebrectf29.png)
 
@@ -201,7 +201,18 @@ Podem veure una altra FLAG:
 
 ![](img/insebrectf35.png)
 
+### 13. Missatge GPG
 
+Amb els nous permissos de root podem veure un historial de la shell de l'usuari root amb more, i podem veure una linia on s'executa una comanda `./safe 131333`
+
+
+![](img/insebrectf36.png)
+
+Provem a usar el codi a l'arxiu gpg, i podem veure que el deixifrem:
+
+Podem veure una altra flag i 3 pistes per una contrasenya (probablement per l'arxiu `journal.zip`)
+
+![](img/insebrectf37.png)
 
 ---
 
@@ -221,7 +232,7 @@ Llistat de Flags:
 
 * Port 13337 
 
-  `FLAG{HanEncontradoMiBackDoorBender} - 10Punts`
+  `FLAG{HanEncontradoMiBackDoorBender}- 10 Punts`
 
 * User Summer 
   
@@ -234,3 +245,7 @@ Llistat de Flags:
 * ncat port 60000
 
   `FLAG{Dale duro Fry. Dale...} - 10 Punts.`
+
+* Missatge GPG
+ 
+  `FLAG{Y allaaaaaa vamoooooooos} - 20 Punts`
