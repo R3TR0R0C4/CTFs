@@ -146,13 +146,13 @@ Aqui trobem una altra Flag:
 
   Amb john the ripper podrém treure la contrasenya d'aquest arxiu:
 
-  ![](img/insebrectf38.png)
+  ![](img/insebrectf26.png)
 
   Amb 7z extreurel i veure el contingut, una altra flag!
 
-  ![](img/insebrectf39.png)
+  ![](img/insebrectf27.png)
 
-  ![](img/insebrectf40.png)
+  ![](img/insebrectf28.png)
      
 ### 10. Escalada de privilegis
 
@@ -162,56 +162,56 @@ Primer de tot necessitem saber en quina versió estem treballant
 
 Amb un `more /etc/fedora-release` veiem que estem treballant amb fedora 26
 
-![](img/insebrectf28.png)
+![](img/insebrectf29.png)
 
 I amb un `uname -a` veiem que la versió del kernel és la `4.11.8-300`
 
-![](img/insebrectf29.png)
+![](img/insebrectf30.png)
 
 Apartir d'aquesta informació podem buscar un exploit, aquest és el que he trobat: [link](https://vulners.com/zdt/1337DAY-ID-30705)
 
 Amb gcc el compilaré i l'enviaré a la màquina:
 
-![](img/insebrectf30.png)
+![](img/insebrectf31.png)
 
 Una vegada enviat entrem amb Summer i iniciem l'exploit, veurem que ara sóm l'usuari root:
 
-![](img/insebrectf31.png)
+![](img/insebrectf32.png)
 
 ### 11. Flag usuari root
 
 Navegant cap a la home del root podem veure una altra FLAG:
 
-![](img/insebrectf32.png)
+![](img/insebrectf33.png)
 
 Aquesta és la FLAG
 
-![](img/insebrectf33.png)
+![](img/insebrectf34.png)
 
 ### 12. Flag port 60000
 
 Amb l'accés de root podem aprofitar per utilitzar lsof per veure quins ports están escoltant i a quins processos estàn relacionats.
 
-![](img/insebrectf34.png)
+![](img/insebrectf35.png)
 
 Podem veure que el port 60000 està rel·lacionat amb nc, podem utilitzar nc o ncat per intentar connectar-nos.
 
 Podem veure una altra FLAG:
 
-![](img/insebrectf35.png)
+![](img/insebrectf36.png)
 
 ### 13. Missatge GPG
 
 Amb els nous permissos de root podem veure un historial de la shell de l'usuari root amb more, i podem veure una linia on s'executa una comanda `./safe 131333`
 
 
-![](img/insebrectf36.png)
+![](img/insebrectf37.png)
 
 Provem a usar el codi a l'arxiu gpg, i podem veure que el deixifrem:
 
 Podem veure una altra flag i 3 pistes per una contrasenya (probablement per l'arxiu `journal.zip`)
 
-![](img/insebrectf37.png)
+![](img/insebrectf38.png)
 
 ---
 
