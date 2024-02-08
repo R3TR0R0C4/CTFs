@@ -8,18 +8,18 @@
 
 ---
 
-Tools Used:
+Eines Utilitzades:
 
 - Kali Linux
 - NMAP
-- CURL
-- hydra
-- filezilla (or any other ftp client)
+- client FTP
 - binwalk
 - zip2john
-- John the Ripper
-- stegcracker
-- steghide
+- 7zip
+- gcc
+- ssh
+- nc / ncat
+
 
 ---
 
