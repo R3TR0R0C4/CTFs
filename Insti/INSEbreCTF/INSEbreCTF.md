@@ -8,6 +8,21 @@
 
 ---
 
+Tools Used:
+
+- Kali Linux
+- NMAP
+- CURL
+- hydra
+- filezilla (or any other ftp client)
+- binwalk
+- zip2john
+- John the Ripper
+- stegcracker
+- steghide
+
+---
+
 ### 1. NMAP scan
 
 Escanejarem la màquina per veure quins serveis están corrent.
@@ -19,7 +34,7 @@ Ja a que hem vist un servei web utilitzaré dirb per mirar de buscar que hi ha, 
 ![](img/insebrectf02.png)
 
 ### 2. Visitar http
-    
+
 Podem veure que dintre de `/passwords` trobem l'arxiu `FLAG.txt` i `passwords.html`:
 
 ![](img/insebrectf03.png)
@@ -48,7 +63,6 @@ Aqui podem veure una altra de les flags:
 
 ![](img/insebrectf08.png)
 
-
 ### 5. Cockpit web service
 
 Només entrar a l'adreça al port `9090` veiem una altra flag:
@@ -69,31 +83,31 @@ Podem veure un directori `/cgi-bin/` al que no tením accés, pero sí a dos arx
 
 ![](img/insebrectf11.png)
 
-* `root_shell.cgi`
+- `root_shell.cgi`
 
-    Aquest és el contingut de l'arxiu, no pareix massa util, així que almenys de moment el deixarem de vanda.
+  Aquest és el contingut de l'arxiu, no pareix massa util, així que almenys de moment el deixarem de vanda.
 
-    ![](img/insebrectf12.png)
+  ![](img/insebrectf12.png)
 
 <br>
 
-* `injection.cgi`
+- `injection.cgi`
 
-    En aquest arxiu podem veure un formulari, amb el text `Esperant ; ordres (pista!...)` si utilitzem un punt i coma podem executar comandes i que ens ho retorni: 
+  En aquest arxiu podem veure un formulari, amb el text `Esperant ; ordres (pista!...)` si utilitzem un punt i coma podem executar comandes i que ens ho retorni:
 
-    ![](img/insebrectf13.png)
+  ![](img/insebrectf13.png)
 
-    Per exemple amb la comanda `whoami`
+  Per exemple amb la comanda `whoami`
 
-    ![](img/insebrectf14.png)
+  ![](img/insebrectf14.png)
 
-    Intentem utilitzar `cat` per veure els continguts de `/etc/passwd` pero pareix que han canviat el programa de cat per que només imprimeix-qui un gat en ASCII:
+  Intentem utilitzar `cat` per veure els continguts de `/etc/passwd` pero pareix que han canviat el programa de cat per que només imprimeix-qui un gat en ASCII:
 
-    ![](img/insebrectf15.png)
+  ![](img/insebrectf15.png)
 
-    Pel que utilitzarém `more`, podem veure un usuari `Summer`, que si mirem al comentari de l'arxiu `/passwords/passwords.html` podria estar rel·lacionat amb la contrasenya "winter", també podem veure usuaris com "Bender" i "Fry":
+  Pel que utilitzarém `more`, podem veure un usuari `Summer`, que si mirem al comentari de l'arxiu `/passwords/passwords.html` podria estar rel·lacionat amb la contrasenya "winter", també podem veure usuaris com "Bender" i "Fry":
 
-    ![](img/insebrectf16.png)
+  ![](img/insebrectf16.png)
 
 ### 8. Login SSH
 
@@ -107,18 +121,17 @@ Aqui trobem una altra Flag:
 
 ### 9. Homes d'altres usuaris
 
-* Home de BENDER:
+- Home de BENDER:
 
-    Entrant a la home de "Bender" podem veure una carpeta de `/home/Bender/BENDER_SAFE` podem veure un missatge xifrat en gpg, de moment no tenim la clau per deixifrar-lo.
+  Entrant a la home de "Bender" podem veure una carpeta de `/home/Bender/BENDER_SAFE` podem veure un missatge xifrat en gpg, de moment no tenim la clau per deixifrar-lo.
 
-    ![](img/insebrectf19.png)
+  ![](img/insebrectf19.png)
 
-    De moment el deixaré de banda, podem veure la resolució a [Apartat 13](/INSEbreCTF.md#13-missatge-gpg)
+  De moment el deixaré de banda, podem veure la resolució a [Apartat 13](/INSEbreCTF.md#13-missatge-gpg)
 
-    
 <br>
 
-* Home de FRY:
+- Home de FRY:
 
   Dintre de la home de "FRY" podem veure veure una jpg `Safe_Password.jpg` i `journal.zip`
 
@@ -137,7 +150,7 @@ Aqui trobem una altra Flag:
   ![](img/insebrectf23.png)
 
   Després comprovarém el contingut de l'arxiu zip, veiem que està bloquejat amb una contrasenya:
-    
+
   ![](img/insebrectf24.png)
 
   Utilitzarem "zip2john" per intentar atacar la contrasenya amb un atac de diccionari:
@@ -153,7 +166,7 @@ Aqui trobem una altra Flag:
   ![](img/insebrectf27.png)
 
   ![](img/insebrectf28.png)
-     
+
 ### 10. Escalada de privilegis
 
 Aprofitant que tenim un accés d'ssh amb l'usuar `Summer` he intentat buscar una escalada de privilegis.
@@ -204,7 +217,6 @@ Podem veure una altra FLAG:
 
 Amb els nous permissos de root podem veure un historial de la shell de l'usuari root amb more, i podem veure una linia on s'executa una comanda `./safe 131333`
 
-
 ![](img/insebrectf37.png)
 
 Provem a usar el codi a l'arxiu gpg, i podem veure que el deixifrem:
@@ -217,38 +229,38 @@ Podem veure una altra flag i 3 pistes per una contrasenya (probablement per l'ar
 
 Llistat de Flags:
 
-* Lloc web /passwords/FLAG.txt 
-  
+- Lloc web /passwords/FLAG.txt
+
   `FLAG{¡Maldito abrelatas!¡Mataste a mi padre y ahora has venido a por mí!} - 10 Punts`
 
-* FTP (mode anonim)
- 
+- FTP (mode anonim)
+
   `FLAG{Besa mi brillante trasero metálico.} - 10 Punts`
 
-* Cockpit Services 
-  
+- Cockpit Services
+
   `FLAG {Oh Dios mío, ella está atrapada en un bucle infinito de repetición... ¡Y Fry es idiota!} - 10 Punts`
 
-* Port 13337 
+- Port 13337
 
   `FLAG{HanEncontradoMiBackDoorBender} - 10 Punts`
 
-* User Summer 
-  
+- User Summer
+
   `FLAG{Tengo que revisar mi programa. Mmm... ¡Sí!} - 10 Punts`
 
-* Home root
+- Home root
 
   `FLAG{El espacio parece extenderse sin límites. Hasta que llegas al final y aparece un mono lanzándote barriles.} - 30 Punts`
 
-* ncat port 60000
+- ncat port 60000
 
   `FLAG{Dale duro Fry. Dale...} - 10 Punts.`
 
-* Missatge GPG
- 
+- Missatge GPG
+
   `FLAG{Y allaaaaaa vamoooooooos} - 20 Punts`
 
-* journal.zip
+- journal.zip
 
   `FLAG{131333} - 20 Punts`
