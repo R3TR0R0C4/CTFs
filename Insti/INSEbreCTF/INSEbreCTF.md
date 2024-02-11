@@ -4,16 +4,20 @@
 
 ## Taula de continguts
 
-1. [NMAP scan]()
-2. [NMAP scan]()
-3. [NMAP scan]()
-4. [NMAP scan]()
-5. [NMAP scan]()
-6. [NMAP scan]()
-7. [NMAP scan]()
-8. [NMAP scan]()
-9. [NMAP scan]()
-10. [NMAP scan]()
+1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#1-nmap-scan)
+2. [Visitar http](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#2-visitar-http)
+3. [FLAG 1](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#3-flag-1)
+4. [ftp](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#4-ftp)
+5. [Cockpit web service](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#5-cockpit-web-service)
+6. [Servei desconegut p. 13337](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#6-servei-desconegut-p-13337)
+7. [robots.txt](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#7-robotstxt)
+8. [Login SSH](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#8-login-ssh)
+9. [Homes d'altres usuaris](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#9-homes-daltres-usuaris)
+10. [Escalada de privilegis](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#10-escalada-de-privilegis)
+11. [Flag usuari root](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#11-flag-usuari-root)
+12. [Flag port 60000](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#12-flag-port-60000)
+13. [Missatge GPG](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#13-missatge-gpg)
+14. [Llista de Flags](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#llistat-de-Flags)
 
 ---
 
@@ -236,7 +240,7 @@ Podem veure una altra flag i 3 pistes per una contrasenya (probablement per l'ar
 
 ---
 
-Llistat de Flags:
+### Llistat de Flags
 
 - Lloc web /passwords/FLAG.txt
 
