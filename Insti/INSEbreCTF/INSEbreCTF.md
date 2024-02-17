@@ -1,6 +1,5 @@
 # INSEbreCTF
 
----
 
 ## Taula de continguts
 
