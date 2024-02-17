@@ -193,7 +193,7 @@ I amb un `uname -a` veiem que la versió del kernel és la `4.11.8-300`
 
 ![](img/insebrectf30.png)
 
-Apartir d'aquesta informació podem buscar un exploit, aquest és el que he trobat: [link](https://vulners.com/zdt/1337DAY-ID-30705)
+Apartir d'aquesta informació podem buscar un exploit, aquest és el que he trobat: [link](https://vulners.com/zdt/1337DAY-ID-30705) o en aquest repositori local
 
 Amb gcc el compilaré i l'enviaré a la màquina:
 
