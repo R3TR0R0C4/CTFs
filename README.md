@@ -6,6 +6,7 @@ This is just a repo for my ctfs writeups for some cybersecurity practice.
 
   * [Agent Sudo](TryHackMe/AgentSudo/agentSudo.md)
   * [Basic Pentesting](TryHackMe/BasicPentesting/basicPentesting.md)
+  * [Pickle Rick](TryHackMe/PickleRick/picklerick.md)
   * [RootMe](TryHackMe/RootMe/rootme.md)
   * [Simple CTF (WIP)](TryHackMe/SimpleCTF/simplectf.md)
 
