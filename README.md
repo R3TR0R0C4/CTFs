@@ -8,7 +8,6 @@ This is just a repo for my ctfs writeups for some cybersecurity practice.
   * [Basic Pentesting](TryHackMe/BasicPentesting/basicPentesting.md)
   * [Pickle Rick](TryHackMe/PickleRick/picklerick.md)
   * [RootMe](TryHackMe/RootMe/rootme.md)
-  * [Simple CTF (WIP)](TryHackMe/SimpleCTF/simplectf.md)
 
 ### VulnHub
 
