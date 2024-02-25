@@ -24,9 +24,9 @@ Objectives:
 7. [Using the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#7-using-the-exploit)
 8. [Getting the SSH Key](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#8-getting-the-ssh-key)
 9. [First user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#9-first-user-flag)
-10. [Second user flag]()
-11. [Escalating to root]()
-12. [Third flag]()
+10. [Second user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#10-changing-users)
+11. [Escalating to root](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#11-second-user-flag)
+12. [Third flag](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#12-escalating-to-root)
 
 ---
 
