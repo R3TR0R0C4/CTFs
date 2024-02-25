@@ -15,19 +15,18 @@ Objectives:
 
 ## Table of Content
 
-1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#11-getting-the-second-flag)
-2. [Visiting the web](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#2-visiting-the-web)
-3. [Attempting SSH login](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#3-attempting-ssh-login)
-4. [dirb reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#4-dirb-reconeisance)
-5. [WPScan reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#5-wpscan-reconeisance)
-6. [Prepairing the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#6-prepairing-the-exploit)
-7. [Using the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#7-using-the-exploit)
-8. [Getting the SSH Key](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#8-getting-the-ssh-key)
-9. [First user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#9-first-user-flag)
-10. [Changing Users](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#10-changing-users)
-11. [Second user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#11-second-user-flag)
-12. [Escalating to root](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#12-escalating-to-root)
-13. [Third flag](https://github.com/R3TR0R0C4/CTFs/blob/main/SoSimple1/SoSimple1.md#13-third-flag)
+1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#1-nmap-scan)
+2. [Visiting the web](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#2-visiting-the-web)
+3. [Attempting SSH login](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#3-attempting-ssh-login)
+4. [dirb reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#4-dirb-reconeisance)
+5. [WPScan reconeisance](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#5-wpscan-reconeisance)
+6. [Prepairing the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#6-prepairing-the-exploit)
+7. [Using the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#7-using-the-exploit)
+8. [Getting the SSH Key](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#8-getting-the-ssh-key)
+9. [First user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/VulnHub/SoSimple1/SoSimple1.md#9-first-user-flag)
+10. [Second user flag]()
+11. [Escalating to root]()
+12. [Third flag]()
 
 ---
 
