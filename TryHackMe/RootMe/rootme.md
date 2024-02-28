@@ -18,7 +18,8 @@ Tools Used:
 
 ---
 
-1.  Nmap Scan
+### 1. NMAP scan
+
 
     Using `nmap -a IP` we will enumerate all the actie ports and versions ofthe machine.
 
@@ -31,7 +32,7 @@ Tools Used:
 
     <br>
 
-2.  Gobuster
+### 2. Gobuster
 
     Then with gobuster or dirbuster we can see that there are more directories, this is the command we'll use to see what are some of the contents on the machine:
 
@@ -52,7 +53,7 @@ Tools Used:
 
     <br>
 
-3.  Exploit Preparation
+### 3. Exploit Preparation
 
     When visiting the page source for the panel page i saw that it's running with php, for the exploit i'll use a built-in exploit in kali.
     The exploit in queston is situated in `/usr/share/webshells/php` and it's `php-reverse-shell.php` and i'll edit it with nano:
@@ -66,7 +67,7 @@ Tools Used:
 
         ![](img/rootme07.png)
 
-4. Using the exploit
+### 4. Using the exploit
 
     Then i'll change the extension from `.php` to `.phtml`, as the website doesn't allow the upload of php files, but it still can upload and execute the phtml.
 
@@ -92,13 +93,13 @@ Tools Used:
 
     ![](img/rootme13.png)
 
-5. Getting the user flag
+### 5. Getting the user flag
 
     In the `/var/www` there will be the user flag: 
 
     ![](img/rootme14.png)
 
-6. Privilege escalation
+### 6. Privilege escalation
 
     Then, by using the clue of the "Search for files with SUID permission, which file is weird?" i've used the command `find /`, it will search on the root of the system, `-perm /4000` we'll search for the specific permissions, and with `2>/dev/null` it won't return all the errors, and only show the files it has access to.
     
@@ -118,7 +119,7 @@ Tools Used:
 
     ![](img/rootme16.png)
 
-7. Getting the root flag
+### 7. Getting the root flag
 
     We can finally get the root flag that's on the root's home:
 

@@ -20,10 +20,9 @@ Tools Used:
 - stegcracker
 - steghide
 
-
 ---
 
-1. nmap scan
+### 1. nmap scan
    
     Enumerate the machine and get all the important information.
 
@@ -39,7 +38,7 @@ Tools Used:
 
     ![](img/AgentSudo2.png)
 
-2. Changing user agent
+### 2. Changing user agent
 
     Due to the machine name and the end of the message I tried to change the user agent to use the alphabet with curl:
 
@@ -53,7 +52,7 @@ Tools Used:
 
     ![](img/AgentSudo4.png)
     
-3. Hydra ftp brute force
+### 3. Hydra ftp brute force
 
     Knowing that the user is "chris" with a weak password I then tried to use hydra with the john.lst dicctionary:
 
@@ -69,7 +68,7 @@ Tools Used:
 
     Then downloaded all the files
 
-4. Steganography
+### 4. Steganography
 
     If we cat the content of file "To_agentJ.txt" we see:
 
@@ -105,7 +104,7 @@ Tools Used:
 
     ![](img/AgentSudo15.png)
 
-5. SSH login
+### 5. SSH login
 
     As we can see there's a username mentioned "james" and it's password "hackerrules!"
 
@@ -117,7 +116,7 @@ Tools Used:
 
     ![](img/AgentSudo17.png)
 
-6. Autopsy image reverse search
+### 6. Autopsy image reverse search
 
     Then we can get the "Alien_autopsy.jpg" to investigate further, for that i'll use scp:
 
@@ -131,7 +130,7 @@ Tools Used:
 
     ![](img/AgentSudo20.png)
 
-7. Privilege escalation
+### 7. Privilege escalation
 
     I've tried to look for the linux kernel exploits, but couldn't find anything useful, so, with "sudo -l" we can find what privileges we have, we habe access to "/bin/bash", and with a google search of "exploit /bin/bash" we find this:
 
@@ -141,7 +140,7 @@ Tools Used:
 
     ![](img/AgentSudo22.png)
     
-8. Root flag
+### 8. Root flag
 
     Then we can cd into our root's home, cat the root.txt and get the root flag, and the Agent R name "DesKel". 
 

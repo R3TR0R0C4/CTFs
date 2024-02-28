@@ -19,13 +19,13 @@ Tools Used:
 
 ---
 
-1.  Nmap Scan
+### 1. Nmap Scan
 
     We'll scan the IP to see what services are running, first, let's visit the website.
 
     ![](img/picklerick01.png)
 
-2. Website 
+### 2. Website 
 
     After visiting the website, we can't see anything that gives out any clues or ingridient.
 
@@ -37,7 +37,7 @@ Tools Used:
 
     ![](img/picklerick03.png)
 
-3. gobuster & dirbuster
+### 3. gobuster & dirbuster
 
     I've tried to use gobuster to list the available directories and some files on the webserver, i could find a assets folder with a bunch of pics, i ran binwalk on all of them but none resulted in any clues.
 
@@ -52,7 +52,7 @@ Tools Used:
 
     ![](img/picklerick06.png)
 
-4. Web login
+### 4. Web login
 
     We can see a login portal, for wich i'll use the user `R1ckRul3s` and password `Wubbalubbadubdub` that we found previously:
 
@@ -62,7 +62,7 @@ Tools Used:
 
     ![](img/picklerick08.png)
 
-5. Reverse Shell access
+### 5. Reverse Shell access
 
     Then i'll attempt to use a reverse shell that exploits openSSL from [this](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#openssl) website.
    
@@ -74,19 +74,19 @@ Tools Used:
 
     ![](img/picklerick10.png)
 
-6. First Flag
+### 6. First Flag
 
     We can see that there is a .txt file, if we cat that we can see the first flag:
 
     ![](img/picklerick11.png)
 
-7. Second Flag
+### 7. Second Flag
 
     After entering the `/home/` folder we see a couple of user's homes, ubuntu doesn't contain any visible file, but rick does, and there we can find the second flag:
 
     ![](img/picklerick12.png)
 
-8. Third Flag
+### 8. Third Flag
 
     Since we have a reverse shell access, let's try `sudo -l` to see if we have permissions on something:
 

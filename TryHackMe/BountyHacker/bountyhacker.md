@@ -16,10 +16,9 @@ Tools Used:
 - hydra
 - ssh client
 
-
 ---
 
-1.  Nmap Scan
+### 1. Nmap Scan
 
     Doing a full nmap was taking too long, so i'll limit it to the first 10.000 ports, this is the result
 
@@ -29,7 +28,7 @@ Tools Used:
 
 <br>
 
-2.  anonymous ftp
+### 2. anonymous ftp
    
     Trying to login as anonymous is successful, but trying to list the directory we get a message:
 
@@ -45,7 +44,7 @@ Tools Used:
 
 <br>
 
-3.  locks and task
+### 3. locks and task
 
     The file `locks.txt` contains what seems to be some passwords.
 
@@ -57,7 +56,7 @@ Tools Used:
 
 <br>
 
-4.  Hydra
+### 4. Hydra
    
     After getting what looks like some passwords, i'll be using hydra to try and breake my way in through SSH.
 
@@ -75,7 +74,7 @@ Tools Used:
 
 <br>
 
-5.  SSH login and first flag
+### 5. SSH login and first flag
 
     After getting the password for the user lin, we can see on the Desktop the file `user.txt`, that's the first flag:
 
@@ -83,7 +82,7 @@ Tools Used:
 
 <br>
 
-6.  root flag
+### 6. root flag
 
     After looking around the filesystem and not finding anythin i tried to use my sudo permissions on the root's home folder, but turns out I don't have the permissions to do that:
 
