@@ -9,16 +9,16 @@ Tryhackme [link](https://tryhackme.com/room/agentsudoctf)
 ---
 
 Tools Used:
-* Kali Linux
-* NMAP
-* CURL
-* hydra
-* filezilla (or any other ftp client)
-* binwalk
-* zip2john
-* John the Ripper
-* stegcracker
-* steghide
+- Kali Linux
+- NMAP
+- CURL
+- hydra
+- filezilla (or any other ftp client)
+- binwalk
+- zip2john
+- John the Ripper
+- stegcracker
+- steghide
 
 
 ---
@@ -81,7 +81,7 @@ Tools Used:
 
     ![](img/AgentSudo9.png)
 
-    * We want to know what's inside the zip file on the "cutie.png" photo, for that the first thing we'll do is extract the contents, we can see a new folder "_cutie.png.extracted":
+    - We want to know what's inside the zip file on the "cutie.png" photo, for that the first thing we'll do is extract the contents, we can see a new folder "_cutie.png.extracted":
   
         ![](img/AgentSudo10.png)
 
@@ -89,7 +89,7 @@ Tools Used:
 
         ![](img/AgentSudo11.png)
 
-    * To get the steg password we will use the tool "stegcracker" on the image "cute-alien.jpg".
+    - To get the steg password we will use the tool "stegcracker" on the image "cute-alien.jpg".
 
         ![](img/AgentSudo12.png)
 
