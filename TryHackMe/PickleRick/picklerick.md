@@ -1,4 +1,4 @@
-# Simple CTF
+# Pickle Rick
 
 ---
 

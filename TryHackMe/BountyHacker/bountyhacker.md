@@ -1,4 +1,4 @@
-# RootMe
+# Bounty Hacker
 
 ---
 
@@ -12,6 +12,9 @@ Tools Used:
 
 - Kali Linux
 - NMAP
+- ftp client
+- hydra
+- ssh client
 
 
 ---
@@ -24,6 +27,7 @@ Tools Used:
 
     Visiting the website we can't really see anything useful.
 
+<br>
 
 2.  anonymous ftp
    
@@ -33,11 +37,13 @@ Tools Used:
 
     ![](img/bountyhacker02.png)
 
-    After a while we get an error of a connection time out, and we get the result of the command:
+    After a while we get a connection time out error, and then the result of the dir command:
 
     ![](img/bountyhacker03.png)
 
     We can see 2 files `locks.txt` and `task.txt`, we'll download them and see what's inside.
+
+<br>
 
 3.  locks and task
 
@@ -48,8 +54,8 @@ Tools Used:
     And the file `task.txt` a couple of tasks and a name:
 
     ![](img/bountyhacker05.png)
-    
-    
+
+<br>
 
 4.  Hydra
    
@@ -65,13 +71,17 @@ Tools Used:
 
     ![](img/bountyhacker07.png)
 
-    As we can see the password for `lin` is ``.
+    As we can see the password for `lin` is `RedDr4gonSynd1cat3`.
+
+<br>
 
 5.  SSH login and first flag
 
     After getting the password for the user lin, we can see on the Desktop the file `user.txt`, that's the first flag:
 
     ![](img/bountyhacker08.png)
+
+<br>
 
 6.  root flag
 
