@@ -17,6 +17,7 @@ Tools Used:
 ---
 
 1.  Nmap Scan
+
     Doing a full nmap was taking too long, so i'll limit it to the first 10.000 ports, this is the result
 
     ![](img/bountyhacker01.png)
