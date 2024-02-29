@@ -8,6 +8,19 @@ Tryhackme [link](https://tryhackme.com/room/agentsudoctf)
 
 ---
 
+## Table of Content
+
+1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/AgentSudo/agentSudo.md#1-nmap-scan)
+2. [Changing user agent](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/AgentSudo/agentSudo.md#2-changing-user-agent)
+3. [Hydra ftp brute force](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/AgentSudo/agentSudo.md#3-hydra-ftp-brute-force)
+4. [Steganography](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/AgentSudo/agentSudo.md#4-steganography)
+5. [SSH login](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/AgentSudo/agentSudo.md#5-ssh-login)
+6. [Autopsy image reverse search](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/AgentSudo/agentSudo.md#6-autopsy-image-reverse-search)
+7. [Privilege escalation](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/AgentSudo/agentSudo.md#7-privilege-escalation)
+8. [Root flag](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/AgentSudo/agentSudo.md#8-root-flag)
+
+---
+
 Tools Used:
 
 - Kali Linux

@@ -8,6 +8,20 @@ Machine by [ar33zy](https://tryhackme.com/p/ar33zy)
 
 ---
 
+## Table of Content
+
+1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/PickleRick/picklerick.md#1-nmap-scan)
+2. [Website](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/PickleRick/picklerick.md#2-website)
+3. [gobuster & dirbuster](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/PickleRick/picklerick.md#3-gobuster--dirbuster)
+4. [Web login](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/PickleRick/picklerick.md#4-web-login)
+5. [Reverse Shell access](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/PickleRick/picklerick.md#5-reverse-shell-access)
+6. [First Flag](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/PickleRick/picklerick.md#6-first-flag)
+7. [Second Flag](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/PickleRick/picklerick.md#7-second-flag)
+8. [Third Flag](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/PickleRick/picklerick.md#8-third-flag)
+
+
+---
+
 Tools Used:
 
 - Kali Linux

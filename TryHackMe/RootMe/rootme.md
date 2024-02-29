@@ -8,6 +8,20 @@ Tryhackme [link](https://tryhackme.com/room/rrootme)
 
 ---
 
+## Table of Content
+
+1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/RootMe/rootme.md#1-nmap-scan)
+2. [Gobuster](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/RootMe/rootme.md#2-gobuster)
+3. [Exploit Preparation](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/RootMe/rootme.md#3-exploit-preparation)
+4. [Using the exploit](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/RootMe/rootme.md#4-using-the-exploit)
+5. [Getting the user flag](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/RootMe/rootme.md#5-getting-the-user-flag)
+6. [Privilege escalation](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/RootMe/rootme.md#6-privilege-escalation)
+7. [Getting the root flag](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/RootMe/rootme.md#7-getting-the-root-flag)
+
+
+
+---
+
 Tools Used:
 
 - Kali Linux
