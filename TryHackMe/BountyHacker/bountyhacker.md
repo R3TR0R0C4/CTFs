@@ -19,7 +19,7 @@ Tryhackme [link](https://tryhackme.com/room/cowboyhacker)
 
 ---
 
-Tools Used:
+## Tools Used:<!-- omit in toc -->
 
 - Kali Linux
 - NMAP

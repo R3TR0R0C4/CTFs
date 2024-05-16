@@ -22,7 +22,7 @@ Machine by [ar33zy](https://tryhackme.com/p/ar33zy)
 
 ---
 
-Tools Used:
+## Tools Used:<!-- omit in toc -->
 
 - Kali Linux
 - NMAP

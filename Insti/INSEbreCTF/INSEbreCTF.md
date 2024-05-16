@@ -1,26 +1,26 @@
-# INSEbreCTF
+# INSEbreCTF<!-- omit in toc -->
 
 
-## Taula de continguts
+## Taula de continguts<!-- omit in toc -->
 
-1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#1-nmap-scan)
-2. [Visitar http](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#2-visitar-http)
-3. [FLAG 1](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#3-flag-1)
-4. [ftp](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#4-ftp)
-5. [Cockpit web service](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#5-cockpit-web-service)
-6. [Servei desconegut p. 13337](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#6-servei-desconegut-p-13337)
-7. [robots.txt](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#7-robotstxt)
-8. [Login SSH](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#8-login-ssh)
-9. [Homes d'altres usuaris](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#9-homes-daltres-usuaris)
-10. [Escalada de privilegis](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#10-escalada-de-privilegis)
-11. [Flag usuari root](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#11-flag-usuari-root)
-12. [Flag port 60000](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#12-flag-port-60000)
-13. [Missatge GPG](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#13-missatge-gpg)
-14. [Llista de Flags](https://github.com/R3TR0R0C4/CTFs/blob/main/Insti/INSEbreCTF/INSEbreCTF.md#llistat-de-Flags)
+- [1. NMAP scan](#1-nmap-scan)
+- [2. Visitar http](#2-visitar-http)
+- [3. FLAG 1](#3-flag-1)
+- [4. ftp](#4-ftp)
+- [5. Cockpit web service](#5-cockpit-web-service)
+- [6. Servei desconegut p. 13337](#6-servei-desconegut-p-13337)
+- [7. robots.txt](#7-robotstxt)
+- [8. Login SSH](#8-login-ssh)
+- [9. Homes d'altres usuaris](#9-homes-daltres-usuaris)
+- [10. Escalada de privilegis](#10-escalada-de-privilegis)
+- [11. Flag usuari root](#11-flag-usuari-root)
+- [12. Flag port 60000](#12-flag-port-60000)
+- [13. Missatge GPG](#13-missatge-gpg)
+- [Llistat de Flags](#llistat-de-flags)
 
 ---
 
-## Eines Utilitzades:
+## Eines Utilitzades:<!-- omit in toc -->
 
 - Kali Linux
 - NMAP
@@ -193,7 +193,7 @@ I amb un `uname -a` veiem que la versió del kernel és la `4.11.8-300`
 
 ![](img/insebrectf30.png)
 
-Apartir d'aquesta informació podem buscar un exploit, aquest és el que he trobat: [link](https://vulners.com/zdt/1337DAY-ID-30705) o en aquest repositori local
+Apartir d'aquesta informació podem buscar un exploit, aquest és el que he trobat: [link](https://vulners.com/zdt/1337DAY-ID-30705) o en aquest [repositori local](./exploits/4-13-9LocalPrivilegeEscalation.c)
 
 Amb gcc el compilaré i l'enviaré a la màquina:
 

@@ -20,7 +20,7 @@ Tryhackme [link](https://tryhackme.com/room/rrootme)
 
 ---
 
-Tools Used:
+## Tools Used:<!-- omit in toc -->
 
 - Kali Linux
 - NMAP
