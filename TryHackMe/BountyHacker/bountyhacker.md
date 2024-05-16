@@ -1,4 +1,4 @@
-# Bounty Hacker
+# Bounty Hacker<!-- omit in toc -->
 
 ---
 
@@ -8,14 +8,14 @@ Tryhackme [link](https://tryhackme.com/room/cowboyhacker)
 
 ---
 
-## Table of Content
+## Table of Content<!-- omit in toc -->
 
-1. [NMAP scan](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/BountyHacker/bountyhacker.md#1-nmap-scan)
-2. [anonymous ftp](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/BountyHacker/bountyhacker.md#2-anonymous-ftp)
-3. [locks and task](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/BountyHacker/bountyhacker.md#3-locks-and-task)
-4. [Hydra](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/BountyHacker/bountyhacker.md#4-hydra)
-5. [SSH login and first flag](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/BountyHacker/bountyhacker.md#5-ssh-login-and-first-flag)
-6. [root flag](https://github.com/R3TR0R0C4/CTFs/blob/main/TryHackMe/BountyHacker/bountyhacker.md#6-root-flag)
+- [1. Nmap Scan](#1-nmap-scan)
+- [2. anonymous ftp](#2-anonymous-ftp)
+- [3. locks and task](#3-locks-and-task)
+- [4. Hydra](#4-hydra)
+- [5. SSH login and first flag](#5-ssh-login-and-first-flag)
+- [6. root flag](#6-root-flag)
 
 ---
 
