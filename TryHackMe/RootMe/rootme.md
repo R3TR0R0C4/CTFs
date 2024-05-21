@@ -32,7 +32,7 @@ Tryhackme [link](https://tryhackme.com/room/rrootme)
 
 ### 1. NMAP scan
 
-Using `nmap -a IP` we will enumerate all the actie ports and versions ofthe machine.
+Using `nmap -a IP` we will enumerate all the active ports and versions ofthe machine.
 
 ![](img/rootme01.png)
 

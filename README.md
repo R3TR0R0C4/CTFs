@@ -9,6 +9,7 @@ This is just a repo for my ctfs writeups for some cybersecurity practice.
   * [Bounty Hacker](./TryHackMe/BountyHacker/bountyhacker.md)
   * [Pickle Rick](./TryHackMe/PickleRick/picklerick.md)
   * [RootMe](./TryHackMe/RootMe/rootme.md)
+  * [TryHack3M: Brick Heist](./TryHackMe/TryHack3M_BricksHeist/brickHeist.md)
 
 ### VulnHub
 
