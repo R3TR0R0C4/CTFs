@@ -57,10 +57,31 @@ Using wpscan we can see that there are three vulnerabilities, one of them is an 
 
 ### 4. Exploit preparation
 
-After looking for the RCE vulnerability i've found this [github](https://github.com/Chocapikk/CVE-2024-25600)
+After looking for the RCE vulnerability i've found this [github](https://github.com/Chocapikk/CVE-2024-25600), we'll clone it:
 
+
+
+Install the requirements with pip:
 
 ![](./img/07.png)
+
+<br>
+
+And execute with `python3 exploit.py --url https://bricks.thm/`
+
 ![](./img/08.png)
+
+<br>
+
+Once inside we can see we're inside the `/data/www/default` directory, inside there's the first flag `THM{fl46_650c844110baced87e1606453b93f22a}`
+
 ![](./img/09.png)
+
+<br>
+
+I've tried to get the root db password by listing the contents of `wp-config.php`, but the password field is protected by the `lamp.sh` script
+
 ![](./img/10.png)
+
+
+https://github.com/aels/CVE-2022-2586-LPE
