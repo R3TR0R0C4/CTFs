@@ -85,3 +85,21 @@ I've tried to get the root db password by listing the contents of `wp-config.php
 
 
 https://github.com/aels/CVE-2022-2586-LPE
+
+![](./img/11.png)
+
+![](./img/12.png)
+
+![](./img/13.png)
+
+![](./img/14.png)
+
+![](./img/15.png)
+
+![](./img/16.png)
+
+![](./img/17.png)
+
+![](./img/18.png)
+
+![](./img/19.png)
