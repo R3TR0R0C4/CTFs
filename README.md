@@ -8,10 +8,10 @@ This is just a repo for my ctfs writeups for some cybersecurity practice.
   * [Basic Pentesting](./TryHackMe/BasicPentesting/basicPentesting.md)
   * [Bounty Hacker](./TryHackMe/BountyHacker/bountyhacker.md)
   * [CyberLens](./TryHackMe/CyberLens/cyberlens.md) (WIP)
-  * [Easy CTF](./TryHackMe/EasyCTF/easyctf.md)
   * [Mr Robot](./TryHackMe/MrRobot/mrrobot.md)
   * [Pickle Rick](./TryHackMe/PickleRick/picklerick.md)
   * [RootMe](./TryHackMe/RootMe/rootme.md)
+  * [Simple CTF](./TryHackMe/EasyCTF/easyctf.md)
   * [TryHack3M: Brick Heist](./TryHackMe/TryHack3M_BricksHeist/brickHeist.md)
  
 
