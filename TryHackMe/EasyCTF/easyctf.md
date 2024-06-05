@@ -18,8 +18,6 @@ Tryhackme [link](https://tryhackme.com/r/room/easyctf)
 - [6. Privilege escalation](#6-privilege-escalation)
 - [7. Root flag](#7-root-flag)
 
-
-
 ---
 
 ## Tools Used:<!-- omit in toc -->
